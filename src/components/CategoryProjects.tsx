@@ -102,15 +102,15 @@ const CategoryProjects = () => {
             
             <div className="relative">
               <motion.button
-                onClick={handleBackToProjects}
-                onTouchEnd={handleBackToProjects}
+                onClick={() => navigate('/projects')}
                 className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 w-fit p-2 md:p-0"
                 whileTap={{ scale: 0.95 }}
-                style={{ touchAction: 'manipulation' }}
               >
                 <ArrowLeft className="h-5 w-5" />
                 <span>Back to All Projects</span>
               </motion.button>
+
+
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
