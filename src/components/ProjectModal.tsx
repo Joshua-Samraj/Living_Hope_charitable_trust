@@ -112,7 +112,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
         rel="noopener noreferrer"
         className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 flex items-center justify-center"
       >
-         YouTube
+         Link
       </a>
               </div>
             </div>

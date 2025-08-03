@@ -28,7 +28,7 @@ export const categories: Category[] = [
     description: 'Supporting cancer patients with treatment funds and care.',
     icon: '🎗️',
     color: 'bg-red-700',
-    image : '/image/projects/cancer1.jpg',
+    image : '/image/projects/cancer_image/1.jpg',
     banner : '/image/projects/Banner/fah.jpg'
   },
   {
@@ -38,56 +38,66 @@ export const categories: Category[] = [
     description: 'Emergency relief and rehabilitation during natural disasters.',
     icon: '🚨',
     color: 'bg-emerald-700',
-    image : '/image/projects/flood.jpg',
+    image : '/image/projects/flood/flood.jpg',
     banner : '/image/projects/Banner/flood.jpg'
   },
   {
     id: '4',
-    name: 'Elderly Care',
+    name: 'Old Age Pension Scheme',
     keyword: 'elderly',
     description: 'Monthly support and care for elderly citizens in need.',
     icon: '👴',
     color: 'bg-red-700',
-    image : '/image/projects/cancer1.jpg',
+    image : '/image/projects/old_age/pention.JPG',
     banner : '/image/projects/Banner/fah.jpg'
   },
   {
     id: '5',
-    name: 'Education',
+    name: 'Future sparks',
     keyword: 'education',
     description: 'Providing quality education and resources to underprivileged students.',
     icon: '📚',
-    color: 'bg-emerald-700',
-    image : '/image/projects/cancer1.jpg',
-    banner : '/image/projects/Banner/fah.jpg'
+    color: 'bg-yellow-700',
+    image : '/image/projects/Banner/future.png',
+    banner : 'https://images.pexels.com/photos/8199562/pexels-photo-8199562.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: '6',
-    name: 'Holiday Programs',
+    name: 'Real Christmas',
     keyword: 'holiday',
     description: 'Spreading joy and gifts during festive seasons.',
     icon: '🎄',
     color: 'bg-red-700',
-    image : '/image/projects/cancer1.jpg',
-    banner : '/image/projects/Banner/fah.jpg'
+    image : '/image/projects/Banner/christmas.jpg',
+    banner : '/image/projects/Banner/christmas.jpg'
   },
   {
     id: '7',
-    name: 'Health Awareness',
-    keyword: 'awareness',
-    description: 'Community health education and preventive care initiatives.',
-    icon: '🏥',
-   color: 'bg-emerald-700',
-    image : '/image/projects/cancer1.jpg',
-    banner : '/image/projects/Banner/fah.jpg'
+    name: 'Community Event',
+    keyword: 'holiday',
+    description: 'Motivational speech and ca',
+    icon: '🎄',
+    color: 'bg-red-700',
+    image : '/image/projects/Banner/christmas.jpg',
+    banner : '/image/projects/Banner/christmas.jpg'
   },
+  // {
+  //   id: '7',
+  //   name: 'Health Awareness',
+  //   keyword: 'awareness',
+  //   description: 'Community health education and preventive care initiatives.',
+  //   icon: '🏥',
+  //  color: 'bg-emerald-700',
+  //   image : '/image/projects/cancer1.jpg',
+  //   banner : '/image/projects/Banner/fah.jpg'
+  // },
   {
     id: '8',
     name: 'Upcoming Events',
     keyword: 'upcoming',
     description: 'Future initiatives and programs in planning.',
     icon: '📅',
-    color: 'bg-red-700',
+    color: 'bg-emerald-700',
     image : '/image/projects/cancer1.jpg',
     banner : '/image/projects/Banner/fah.jpg'
   }
