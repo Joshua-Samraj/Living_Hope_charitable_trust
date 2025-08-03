@@ -165,8 +165,10 @@ const CategoryProjects = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-12 md:py-16"
+              transition={{ delay: 0.2 }}
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6"
             >
+
               <p className="text-lg md:text-xl text-gray-600">
                 No projects found in this category.
               </p>
