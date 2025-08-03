@@ -6,7 +6,10 @@ import { projects, Project } from '../data/projects';
 import { categories } from '../data/categories';
 import ProjectCard from '../components/ProjectCard';
 import ProjectModal from '../components/ProjectModal';
+import { Link } from 'react-router-dom';
+import { motions } from 'framer-motion';
 
+const MotionLink = motions(Link);
 const CategoryProjects = () => {
   const { category } = useParams();
   const navigate = useNavigate();
@@ -64,22 +67,25 @@ const CategoryProjects = () => {
       className="min-h-screen pt-16 bg-gray-50"
     >
       {/* Header */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-600 to-green-500 text-white">
+      <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
         {/* Background Image with overlay */}
-        {/* {currentCategory?.image && (
+        {currentCategory?.banner && (
           <div
-            className="absolute inset-0 z-0 bg-cover bg-center brightness-[0.4]"
-            style={{ backgroundImage: `url(${currentCategory.image})` }}
+            className="absolute inset-0 z-0 bg-cover bg-center brightness-[0.2]"
+            style={{ backgroundImage: `url(${currentCategory.banner})` }}
           />
-        )} */}
+        )}
+
+        {/* Optional gradient overlay */}
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-green-500 opacity-50 z-0" /> */}
 
         {/* Content Layer */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center text-white">
           <motion.h1
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4"
           >
             {currentCategory?.name || 'Projects'}
           </motion.h1>
@@ -88,12 +94,15 @@ const CategoryProjects = () => {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg md:text-xl max-w-3xl mx-auto px-4"
+            className="text-sm sm:text-3xl md:text-xl max-w-2xl mx-auto text-gray-400"
+
           >
-            {currentCategory?.description || ''}
+            {/* {currentCategory?.description || 'Explore our impactful initiatives making a real difference.'} */}
           </motion.p>
         </div>
       </section>
+
+
 
       {/* Back Button and Search/Filter */}
       <section className="py-6 md:py-8 bg-white border-b">
@@ -101,15 +110,14 @@ const CategoryProjects = () => {
           <div className="flex flex-col gap-4">
             
             <div className="relative">
-              <motion.button
-                onClick={() => navigate('/projects')}
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 w-fit p-2 md:p-0"
+              <MotionLink
+                to="/projects"
                 whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 w-fit p-2 md:p-0"
               >
                 <ArrowLeft className="h-5 w-5" />
                 <span>Back to All Projects</span>
-              </motion.button>
-
+              </MotionLink>
 
             </div>
 

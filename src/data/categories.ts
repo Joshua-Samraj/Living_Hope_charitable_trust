@@ -7,6 +7,7 @@ export interface Category {
   color: string;
   projectCount?: number;
   image: string;
+  banner: string;
 }
 
 export const categories: Category[] = [
@@ -14,10 +15,11 @@ export const categories: Category[] = [
     id: '1',
     name: 'Fight Against Hunger',
     keyword: 'hunger',
-    description: 'At Living Hope Trust, we believe that everyone deserves the same quality of food that we enjoy inour homes-tasty, healthy, and served hot. Through our Fight Against Hunger initiative, we providefreshly cooked, homemade meals with love and hygiene to those who need it the most in Tirunelveli,Tamil Nadu.',
+    description: 'At Living Hope Trust, we believe that everyone deserves the same quality of food that we enjoy inour homes-tasty, healthy, and served hot.',
     icon: '🍽️',
     color: 'bg-emerald-700',
-    image : '/image/projects/FAH-1.jpg'
+    image : '/image/projects/FAH-1.jpg',
+    banner : '/image/projects/Banner/fah.jpg'
   },
   {
     id: '2',
@@ -26,7 +28,8 @@ export const categories: Category[] = [
     description: 'Supporting cancer patients with treatment funds and care.',
     icon: '🎗️',
     color: 'bg-red-700',
-    image : '/image/projects/cancer1.jpg'
+    image : '/image/projects/cancer1.jpg',
+    banner : '/image/projects/Banner/fah.jpg'
   },
   {
     id: '3',
@@ -35,7 +38,8 @@ export const categories: Category[] = [
     description: 'Emergency relief and rehabilitation during natural disasters.',
     icon: '🚨',
     color: 'bg-emerald-700',
-    image : '/image/projects/flood.jpg'
+    image : '/image/projects/flood.jpg',
+    banner : '/image/projects/Banner/flood.jpg'
   },
   {
     id: '4',
@@ -44,7 +48,8 @@ export const categories: Category[] = [
     description: 'Monthly support and care for elderly citizens in need.',
     icon: '👴',
     color: 'bg-red-700',
-    image : '/image/projects/cancer1.jpg'
+    image : '/image/projects/cancer1.jpg',
+    banner : '/image/projects/Banner/fah.jpg'
   },
   {
     id: '5',
@@ -53,7 +58,8 @@ export const categories: Category[] = [
     description: 'Providing quality education and resources to underprivileged students.',
     icon: '📚',
     color: 'bg-emerald-700',
-    image : '/image/projects/cancer1.jpg'
+    image : '/image/projects/cancer1.jpg',
+    banner : '/image/projects/Banner/fah.jpg'
   },
   {
     id: '6',
@@ -62,7 +68,8 @@ export const categories: Category[] = [
     description: 'Spreading joy and gifts during festive seasons.',
     icon: '🎄',
     color: 'bg-red-700',
-    image : '/image/projects/cancer1.jpg'
+    image : '/image/projects/cancer1.jpg',
+    banner : '/image/projects/Banner/fah.jpg'
   },
   {
     id: '7',
@@ -71,7 +78,8 @@ export const categories: Category[] = [
     description: 'Community health education and preventive care initiatives.',
     icon: '🏥',
    color: 'bg-emerald-700',
-    image : '/image/projects/cancer1.jpg'
+    image : '/image/projects/cancer1.jpg',
+    banner : '/image/projects/Banner/fah.jpg'
   },
   {
     id: '8',
@@ -80,6 +88,7 @@ export const categories: Category[] = [
     description: 'Future initiatives and programs in planning.',
     icon: '📅',
     color: 'bg-red-700',
-    image : '/image/projects/cancer1.jpg'
+    image : '/image/projects/cancer1.jpg',
+    banner : '/image/projects/Banner/fah.jpg'
   }
 ];

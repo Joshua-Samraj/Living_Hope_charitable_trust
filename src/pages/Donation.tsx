@@ -6,16 +6,16 @@ import DonationAnimation from '../components/DonationAnimation';
 const Donation = () => {
   const [showThankYou, setShowThankYou] = useState(false);
 
-  const upiId = 'livinghope@upi';
-  const qrCodePath = 'https://ik.imagekit.io/vc42cyymbb/qr.png?updatedAt=1754076119197';
+  const upiId = 'lydiasherinss@okaxis';
+  const qrCodePath = '/image/projects/qr_code.png';
 
   // Bank Details
   const bankDetails = {
-    accountName: 'Living Hope Charitable Trust',
-    accountNumber: '123456789012',
-    bankName: 'State Bank of India',
-    ifsc: 'SBIN0001234',
-    branch: 'Tambaram Branch',
+    accountName: 'LIVING HOPE CHARITABLE TRUST',
+    accountNumber: '925010021372118',
+    bankName: 'AXIS BANK ',
+    ifsc: 'UTIB0002095',
+    branch: 'Palayamkottai Branch',
   };
 
   const handleCopyUPI = () => {

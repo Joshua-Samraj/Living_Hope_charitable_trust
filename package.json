@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.2",
+    "@capacitor/cli": "^7.4.2",
+    "@capacitor/core": "^7.4.2",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "framer-motion": "^11.18.2",
