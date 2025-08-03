@@ -18,7 +18,7 @@ const Footer = () => {
             <p className="text-gray-400 mb-6">
               Empowering communities through education, healthcare, and sustainable development initiatives.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               {[
                 { icon: Facebook, url: "#" },
                 { icon: Twitter, url: "#" },
@@ -34,7 +34,7 @@ const Footer = () => {
                   <social.icon className="h-6 w-6" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Quick Links */}

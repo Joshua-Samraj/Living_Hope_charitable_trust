@@ -59,10 +59,15 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <motion.div
         initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
+        animate={{
+          opacity: isOpen ? 1 : 0,
+          height: isOpen ? 'auto' : 0,
+          pointerEvents: isOpen ? 'auto' : 'none', // ✅ THIS LINE
+        }}
         transition={{ duration: 0.3 }}
         className="md:hidden bg-white border-t"
       >
+
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navItems.map((item) => (
             <Link

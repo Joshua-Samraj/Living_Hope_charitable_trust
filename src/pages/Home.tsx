@@ -1,51 +1,7 @@
-import React, { useRef, useMemo } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Users, Globe, Heart } from 'lucide-react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { PointMaterial } from '@react-three/drei';
-import * as THREE from 'three';
 import { Link } from 'react-router-dom';
-
-
-const Particles = () => {
-  const ref = useRef<THREE.Points>(null);
-
-  const positions = useMemo(() => {
-    const arr = new Float32Array(1000 * 3);
-    for (let i = 0; i < arr.length; i++) {
-      arr[i] = (Math.random() - 0.5) * 10;
-    }
-    return arr;
-  }, []);
-
-  useFrame((_, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
-    }
-  });
-
-  return (
-    
-    <points ref={ref} rotation={[0, 0, Math.PI / 4]}>
-      {/* <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          array={positions}
-          count={positions.length / 3}
-          itemSize={3}
-        />
-      </bufferGeometry> */}
-      <PointMaterial
-        transparent
-        color="#3B82F6"
-        size={0.05}
-        sizeAttenuation
-        depthWrite={false}
-      />
-    </points>
-  );
-};
 
 const Home = () => {
   const stats = [
@@ -71,13 +27,6 @@ const Home = () => {
     >
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Particle Canvas */}
-        <div className="absolute inset-0 -z-10">
-          <Canvas camera={{ position: [0, 0, 5] }} style={{ background: 'transparent' }}>
-            <Particles />
-          </Canvas>
-        </div>
-
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <motion.h1
             initial={{ y: 50, opacity: 0 }}

@@ -168,10 +168,10 @@ input[type="checkbox"] {
 }
 
 /* Three.js canvas styling */
-canvas {
+/* canvas {
   display: block;
   outline: none;
-}
+} */
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {

@@ -107,8 +107,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200">
                   Volunteer
                 </button> */}
-                <a
-        href={project.link.toLocaleString()}
+                <a href={project.link.toLocaleString()}
         target="_blank"
         rel="noopener noreferrer"
         className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 flex items-center justify-center"
