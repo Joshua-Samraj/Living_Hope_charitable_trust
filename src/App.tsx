@@ -12,6 +12,7 @@ import Scrolltop from './components/ScrollToTop';
 import CategoryProjects from './components/CategoryProjects';
 import VolunteerForm from './components/VolunteerForm';
 import './index.css';
+import GalleryPage from './pages/GalleryPage';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
               <Route path="/projects/:category" element={<CategoryProjects />} />
               <Route path="/donation" element={<Donation />} />
               <Route path="/volunteer" element={<VolunteerForm />} />
+              {/* <Route path="/gallery" element={<Gallery />} /> */}
+              <Route path="/gallery" element={<GalleryPage />} />
             </Routes>
             <Footer />
           {/* </AnimatePresence> */}

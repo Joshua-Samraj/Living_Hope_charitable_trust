@@ -18,7 +18,7 @@ const CategoryProjects = () => {
   // Add refs to track touch events
   const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
 
-  const categoryProjects = projects.filter(project => project.category === category);
+  const categoryProjects = projects.filter(project => project.category === category).reverse();
 
   const filteredProjects = useMemo(() => {
     return categoryProjects.filter(project => {

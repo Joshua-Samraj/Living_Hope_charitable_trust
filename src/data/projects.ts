@@ -488,13 +488,13 @@ export const projects: Project[] = [
   {
     id: '29',
     title: 'Youth Leadership Summit',
-    category: 'upcoming',
+    category: 'Community',
     description: 'Empowering young leaders...',
-    fullDescription: 'The upcoming Youth Leadership Summit...',
+    fullDescription: '',
     image: 'https://images.pexels.com/photos/7414032/pexels-photo-7414032.jpeg?auto=compress&cs=tinysrgb&w=800',
-    status: 'upcoming',
+    status: 'completed',
     beneficiaries: 200,
-    location: 'Training Center',
+    location: 'Rose Mary College Of Arts & Science',
     date: 'March 2024',
     link: 'https://youtube.com/playlist?list=PL3NkSvlzNuULDHwKHhABadQgVyT8YfoZM&feature=shared'
   }

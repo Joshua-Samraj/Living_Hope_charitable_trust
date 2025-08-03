@@ -27,9 +27,9 @@ export const categories: Category[] = [
     keyword: 'cancer',
     description: 'Supporting cancer patients with treatment funds and care.',
     icon: '🎗️',
-    color: 'bg-red-700',
+    color: 'bg-[#F484B2]',
     image : '/image/projects/cancer_image/1.jpg',
-    banner : '/image/projects/Banner/fah.jpg'
+    banner : '/image/projects/cancer1.jpg'
   },
   {
     id: '3',
@@ -37,7 +37,7 @@ export const categories: Category[] = [
     keyword: 'disaster',
     description: 'Emergency relief and rehabilitation during natural disasters.',
     icon: '🚨',
-    color: 'bg-emerald-700',
+    color: 'bg-[#1C243B]',
     image : '/image/projects/flood/flood.jpg',
     banner : '/image/projects/Banner/flood.jpg'
   },
@@ -47,9 +47,9 @@ export const categories: Category[] = [
     keyword: 'elderly',
     description: 'Monthly support and care for elderly citizens in need.',
     icon: '👴',
-    color: 'bg-red-700',
+    color: 'bg-[#4B7574]',
     image : '/image/projects/old_age/pention.JPG',
-    banner : '/image/projects/Banner/fah.jpg'
+    banner : '/image/projects/old_age/pention.JPG'
   },
   {
     id: '5',
@@ -74,12 +74,12 @@ export const categories: Category[] = [
   {
     id: '7',
     name: 'Community Event',
-    keyword: 'holiday',
-    description: 'Motivational speech and ca',
+    keyword: 'Community',
+    description: 'Motivational speech and career guidance',
     icon: '🎄',
-    color: 'bg-red-700',
-    image : '/image/projects/Banner/christmas.jpg',
-    banner : '/image/projects/Banner/christmas.jpg'
+    color: 'bg-emerald-700',
+    image : '/image/projects/Banner/community.jpg',
+    banner : '/image/projects/Banner/community.jpg'
   },
   // {
   //   id: '7',
@@ -97,8 +97,9 @@ export const categories: Category[] = [
     keyword: 'upcoming',
     description: 'Future initiatives and programs in planning.',
     icon: '📅',
-    color: 'bg-emerald-700',
-    image : '/image/projects/cancer1.jpg',
-    banner : '/image/projects/Banner/fah.jpg'
+    color: 'bg-[#37103D]',
+
+    image : '/image/projects/Banner/upcomming.jpg',
+    banner : '/image/projects/Banner/upcomming.jpg'
   }
 ];
