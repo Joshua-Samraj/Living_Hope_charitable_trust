@@ -149,7 +149,7 @@ export const galleryImages: GalleryImage[] = [
     id: '24',
     category: 'Old Age Pension',
     title: 'Future Sparks',
-    url: '/image/projects/gallery/old_age_pension/(1).JPG',
+    url: '/image/projects/gallery/old_age_pension/(1).jpg',
   },
   {
     id: '25',
@@ -161,7 +161,7 @@ export const galleryImages: GalleryImage[] = [
     id: '26',
     category: 'Old Age Pension',
     title: 'Future Sparks',
-    url: '/image/projects/gallery/old_age_pension/(3).jpg',
+    url: '/image/projects/gallery/old_age_pension/(3).JPG',
   },
   {
     id: '27',
