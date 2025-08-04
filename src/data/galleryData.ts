@@ -67,5 +67,41 @@ export const galleryImages: GalleryImage[] = [
     title: 'Fight Against Hunger',
     url: '/image/projects/gallery/hunger/(6).jpg',
   },
+  {
+    id: '11',
+    category: 'Education',
+    title: 'Future Sparks',
+    url: '/image/projects/gallery/future_sparks/(1).jpg',
+  },
+  {
+    id: '12',
+    category: 'Education',
+    title: 'Future Sparks',
+    url: '/image/projects/gallery/future_sparks/(2).jpg',
+  },
+  {
+    id: '13',
+    category: 'Education',
+    title: 'Future Sparks',
+    url: '/image/projects/gallery/future_sparks/(3).jpg',
+  },
+  {
+    id: '14',
+    category: 'Education',
+    title: 'Future Sparks',
+    url: '/image/projects/gallery/future_sparks/(4).jpg',
+  },
+  {
+    id: '15',
+    category: 'Education',
+    title: 'Future Sparks',
+    url: '/image/projects/gallery/future_sparks/(5).jpg',
+  },
+  {
+    id: '16',
+    category: 'Education',
+    title: 'Future Sparks',
+    url: '/image/projects/gallery/future_sparks/(6).jpg',
+  },
   
 ];
