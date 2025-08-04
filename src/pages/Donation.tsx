@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, CheckCircle, Sparkles } from 'lucide-react';
-import DonationAnimation from '../components/DonationAnimation';
+
 
 const Donation = () => {
   const [showThankYou, setShowThankYou] = useState(false);
@@ -33,7 +33,7 @@ const Donation = () => {
     >
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-red-50 to-yellow-50 overflow-hidden">
-        <DonationAnimation />
+        {/* <DonationAnimation /> */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ y: 50, opacity: 0 }}

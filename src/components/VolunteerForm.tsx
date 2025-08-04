@@ -1,38 +1,12 @@
-import React from 'react';
+// import React from 'react';
 import { motion } from 'framer-motion';
-import { FiHeart, FiUsers, FiClock, FiAward, FiSmile } from 'react-icons/fi';
+
 
 const NewVolunteers = () => {
   const whatsappNumber = '+919500561937';
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
-  const benefits = [
-    { 
-      icon: <FiHeart className="w-6 h-6" />, 
-      text: "Transform lives of underprivileged children",
-      details: "Directly impact children's education and wellbeing through mentorship and support programs."
-    },
-    { 
-      icon: <FiUsers className="w-6 h-6" />, 
-      text: "Join a passionate community",
-      details: "Connect with like-minded individuals who share your commitment to social change."
-    },
-    { 
-      icon: <FiSmile className="w-6 h-6" />, 
-      text: "Gain personal fulfillment",
-      details: "Experience the joy of giving back and watch your efforts create tangible differences."
-    },
-    { 
-      icon: <FiAward className="w-6 h-6" />, 
-      text: "Receive appreciation certificates",
-      details: "Get formal recognition for your contributions that can enhance your professional profile."
-    },
-    { 
-      icon: <FiClock className="w-6 h-6" />, 
-      text: "Flexible timings to fit your schedule",
-      details: "Choose from weekday evenings, weekends, or remote volunteering options that work for you."
-    }
-  ];
+  
 
   return (
     <motion.div

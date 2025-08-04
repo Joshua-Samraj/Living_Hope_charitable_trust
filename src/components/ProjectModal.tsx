@@ -90,8 +90,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
           </div>
           
           <div className="prose max-w-none">
-            <p className="text-gray-700 leading-relaxed text-lg">{project.fullDescription}</p>
-          </div>
+        <p style={{ whiteSpace: 'pre-line' }} className="text-gray-700 leading-relaxed text-lg">
+          {project.fullDescription}
+        </p>
+      </div>
+
           
           {project.status && (
             <div className="mt-8 p-6 bg-blue-50 rounded-xl">

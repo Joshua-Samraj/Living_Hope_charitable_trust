@@ -14,13 +14,14 @@ import VolunteerForm from './components/VolunteerForm';
 import './index.css';
 import GalleryPage from './pages/GalleryPage';
 
+
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
         <Navbar />
         <Suspense fallback={<LoadingSpinner />}>
-          {/* <AnimatePresence mode="wait" initial={true}>   */}
+          <AnimatePresence mode="wait" initial={true}>  
             <Scrolltop />
             <Routes>
               <Route path="/" element={<Home />} />
@@ -33,7 +34,7 @@ function App() {
               <Route path="/gallery" element={<GalleryPage />} />
             </Routes>
             <Footer />
-          {/* </AnimatePresence> */}
+          </AnimatePresence>
         </Suspense>
       </div>
     </Router>

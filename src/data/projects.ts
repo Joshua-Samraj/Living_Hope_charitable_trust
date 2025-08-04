@@ -6,7 +6,7 @@ export interface Project {
   fullDescription: string;
   image: string;
   status: 'active' | 'completed' | 'upcoming';
-  beneficiaries: number;
+  beneficiaries: string;
   location: string;
   date: string;
   link: string;
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     fullDescription: 'எனது நீண்ட நாள் ஆசை ஆதரவற்ற மக்களுக்கு  முதல் தரமான  வீட்டு சாப்பாடுகளை நாமே சமைத்து அவர்களுக்கு கொடுக்க வேண்டும் என்பது.    தேவனுடைய பெரிதான கிருபையால் 19-08-2022  அன்று  மீன் சாப்பாடு ,மீன் பொரியல் ,  சௌசௌ கூட்டு என உள்ளடக்கிய உணவுகளை  126 பசியுள்ள மக்களுக்கு இந்த உணவுகளை வழங்க தேவன் உதவி செய்தார். இதை ஒரு திட்டமாக நாங்கள் உருவாக்கியுள்ளோம்  இத்திட்டத்தின் பெயர்  (FIGHT AGAINST HUNGER)  இந்த திட்டத்தின் மூலம் பசியில்லா தமிழகத்தை உருவாக்குவதே எங்கள் நோக்கம். இதன் மூலம்  மாதம் இம்மாதிரியாக உணவுகளை  நமது  LIVING HOPE TRUST  மூலமாக சமைத்து நேரிடையாக அவர்களுக்கு சூடாக பரிமாற திட்டமிட்டுள்ளோம்.',
     image: '/image/projects/FAH-1.jpg',
     status: 'completed',
-    beneficiaries: 126,
+    beneficiaries: '126',
     location: 'Government Hospital',
     date: '(19-08-2022)',
     link: 'https://youtu.be/cI-GAwU2Rcs?feature=shared'
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/FAH-2.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/gim-Yv3ENhk?feature=shared'
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/fah-3.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/W-iLxT22MbY?feature=shared'
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-4.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/ndGGJTx80Qw?feature=shared'
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-5.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/ZghCKkq9DZo?feature=shared'
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-6.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/VFXZE_Oj2XY?feature=shared'
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-7.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/VFXZE_Oj2XY?feature=shared'
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-8.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/fbemB3Jao0s?feature=shared'
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-9.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/nzMXSV9JQeg?feature=shared'
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-11.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/ZU3V9g_-Rb8?feature=shared'
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-12.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/1uojYz9F-1E?feature=shared'
@@ -164,7 +164,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/FAH-13.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/Cu6MoRvTQl4?feature=shared'
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/PAYIRU.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/fvyNI4EX8Yo?feature=shared'
@@ -190,7 +190,7 @@ export const projects: Project[] = [
     fullDescription: 'At Living Hope Trust...',
     image: '/image/projects/thumbline/BRITHDAY.jpg',
     status: 'completed',
-    beneficiaries: 2500,
+    beneficiaries: '2500',
     location: 'Multiple Villages',
     date: '2020-2024',
     link: 'https://youtu.be/yNWunjA6lCM?feature=shared'
@@ -205,7 +205,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Fight Against Cancer program...',
     image: '/image/projects/cancer_image/1.jpg',
     status: 'active',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=6SeoEtT93MM'
@@ -218,7 +218,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Fight Against Cancer program...',
     image: '/image/projects/cancer_image/2.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtu.be/tvdGQrJGvVQ?feature=shared'
@@ -231,7 +231,7 @@ export const projects: Project[] = [
     fullDescription: 'நமது லிவிங் ஹோப் ட்ரஸ்ட்...',
     image: '/image/projects/cancer_image/awareness.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=Ru0y0_ndaB4'
@@ -244,7 +244,7 @@ export const projects: Project[] = [
     fullDescription: 'நமது லிவிங் ஹோப் ட்ரஸ்ட்...',
     image: '/image/projects/cancer_image/awareness_2.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=Ru0y0_ndaB4'
@@ -257,7 +257,7 @@ export const projects: Project[] = [
     fullDescription: 'நமது லிவிங் ஹோப் ட்ரஸ்ட்...',
     image: '/image/projects/cancer_image/Cancer_1_p_1.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=nuqRWIfp1Dg'
@@ -270,7 +270,7 @@ export const projects: Project[] = [
     fullDescription: 'நமது லிவிங் ஹோப் ட்ரஸ்ட்...',
     image: '/image/projects/cancer_image/Cancer_1_p_2.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=nuqRWIfp1Dg'
@@ -283,7 +283,7 @@ export const projects: Project[] = [
     fullDescription: '📢 நெல்லை மக்களுக்கு ஒரு அரிதான வாய்ப்பு!!...',
     image: '/image/projects/cancer_image/Cancer_1_p_3.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=nuqRWIfp1Dg'
@@ -296,7 +296,7 @@ export const projects: Project[] = [
     fullDescription: '📢 நெல்லை மக்களுக்கு ஒரு அரிதான வாய்ப்பு!!...',
     image: '/image/projects/cancer_image/Cancer_1_p_4.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtu.be/29zPPYzKX_M?feature=shared'
@@ -309,7 +309,7 @@ export const projects: Project[] = [
     fullDescription: '📢 மாபெரும் புற்றுநோய் வரும்முன்...',
     image: '/image/projects/cancer_image/Cancer_1_p_5.jpg',
     status: 'completed',
-    beneficiaries: 150,
+    beneficiaries: '150',
     location: 'Regional Hospitals',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=b4vpLSgXeUo'
@@ -324,7 +324,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Disaster Relief Operations...',
     image: '/image/projects/flood/1.jpg',
     status: 'completed',
-    beneficiaries: 1200,
+    beneficiaries: '1200',
     location: 'Disaster-Affected Areas',
     date: '2020-2024',
     link: 'https://youtu.be/riUTH3Z2-sY?feature=shared'
@@ -337,7 +337,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Disaster Relief Operations...',
     image: '/image/projects/flood/2.jpg',
     status: 'completed',
-    beneficiaries: 1200,
+    beneficiaries: '1200',
     location: 'Disaster-Affected Areas',
     date: '2020-2024',
     link: 'https://youtu.be/kFCayONr3bU?feature=shared'
@@ -350,7 +350,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Disaster Relief Operations...',
     image: '/image/projects/flood/3.jpg',
     status: 'completed',
-    beneficiaries: 1200,
+    beneficiaries: '1200',
     location: 'Disaster-Affected Areas',
     date: '2020-2024',
     link: 'https://youtu.be/s0RNabwJqbI?feature=shared'
@@ -363,7 +363,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Disaster Relief Operations...',
     image: '/image/projects/flood/4.jpg',
     status: 'completed',
-    beneficiaries: 1200,
+    beneficiaries: '1200',
     location: 'Disaster-Affected Areas',
     date: '2020-2024',
     link: 'https://youtu.be/1PeGDdXdopM?feature=shared'
@@ -376,7 +376,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Disaster Relief Operations...',
     image: '/image/projects/flood/5.jpg',
     status: 'completed',
-    beneficiaries: 1200,
+    beneficiaries: '1200',
     location: 'Disaster-Affected Areas',
     date: '2020-2024',
     link: 'https://youtube.com/watch?v=e64Xh-RQ-jk'
@@ -389,7 +389,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Disaster Relief Operations...',
     image: '/image/projects/flood/6.jpg',
     status: 'completed',
-    beneficiaries: 1200,
+    beneficiaries: '1200',
     location: 'Disaster-Affected Areas',
     date: '2020-2024',
     link: 'https://youtu.be/elwFo8i6cRA?feature=shared'
@@ -402,7 +402,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Old Age Pension Scheme...',
     image: '/image/projects/old_age/1.jpg',
     status: 'active',
-    beneficiaries: 1,
+    beneficiaries: '3',
     location: 'Senior Care Centers',
     date: '2021-2024',
     link: 'https://youtube.com/watch?v=gYMx_Rgbeuc'
@@ -415,7 +415,7 @@ export const projects: Project[] = [
     fullDescription: 'Future Sparks is our flagship education...',
     image: '/image/projects/Banner/future.png',
     status: 'active',
-    beneficiaries: 800,
+    beneficiaries: '800',
     location: 'Rural Schools',
     date: '2020-2024',
     link: 'https://living-hope-charitable-education-website-liart.vercel.app'
@@ -428,7 +428,7 @@ export const projects: Project[] = [
     fullDescription: 'Real Christmas is our annual holiday program...',
     image: '/image/projects/Banner/christmas.jpg',
     status: 'completed',
-    beneficiaries: 1500,
+    beneficiaries: '1500',
     location: 'Melapalayam',
     date: 'December 2023',
     link: 'https://youtube.com/watch?v=XON8YadWcNs'
@@ -441,7 +441,7 @@ export const projects: Project[] = [
     fullDescription: 'Real Christmas is our annual holiday program...',
     image: '/image/projects/Christmas/1.jpg',
     status: 'completed',
-    beneficiaries: 1500,
+    beneficiaries: '1500',
     location: 'Melapalayam',
     date: 'December 2023',
     link: 'https://youtu.be/Gg_n8C57bJE?feature=shared'
@@ -454,7 +454,7 @@ export const projects: Project[] = [
     fullDescription: 'Real Christmas is our annual holiday program...',
     image: '/image/projects/Christmas/2.jpg',
     status: 'completed',
-    beneficiaries: 1500,
+    beneficiaries: '1500',
     location: 'Melapalayam',
     date: 'December 2023',
     link: 'https://youtube.com/watch?v=OF1CkhAUA08'
@@ -467,7 +467,7 @@ export const projects: Project[] = [
     fullDescription: 'Real Christmas is our annual holiday program...',
     image: '/image/projects/Christmas/3.jpg',
     status: 'completed',
-    beneficiaries: 1500,
+    beneficiaries: '1500',
     location: 'Melapalayam',
     date: 'December 2023',
     link: 'https://youtube.com/watch?v=xLC8UGn5h54'
@@ -480,7 +480,7 @@ export const projects: Project[] = [
     fullDescription: 'Our Health Awareness Program conducts...',
     image: 'https://images.pexels.com/photos/8376302/pexels-photo-8376302.jpeg?auto=compress&cs=tinysrgb&w=800',
     status: 'active',
-    beneficiaries: 3000,
+    beneficiaries: '3000',
     location: 'Rural Communities',
     date: '2020-2024',
     link: 'https://youtube.com/playlist?list=PL3NkSvlzNuULDHwKHhABadQgVyT8YfoZM&feature=shared'
@@ -493,9 +493,36 @@ export const projects: Project[] = [
     fullDescription: '',
     image: 'https://images.pexels.com/photos/7414032/pexels-photo-7414032.jpeg?auto=compress&cs=tinysrgb&w=800',
     status: 'completed',
-    beneficiaries: 200,
+    beneficiaries: '200',
     location: 'Rose Mary College Of Arts & Science',
     date: 'March 2024',
     link: 'https://youtube.com/playlist?list=PL3NkSvlzNuULDHwKHhABadQgVyT8YfoZM&feature=shared'
+  },
+  
+  {
+    id: '30',
+    title: 'Cancer Medical Camp',
+    category: 'upcoming',
+    description: 'Join us for a free Cancer Medical Check-up Camp, providing essential screenings worth ₹5,000 per person at no cost. Early detection saves lives, and this initiative aims to offer high-quality diagnostic services to 200+ beneficiaries, especially underprivileged communities who lack access to proper healthcare.',
+fullDescription: 'Join us for a free Cancer Medical Check-up Camp, providing essential screenings worth ₹5,000 per person at no cost. Early detection saves lives, and this initiative aims to offer high-quality diagnostic services to 200+ beneficiaries, especially underprivileged communities who lack access to proper healthcare.\n\nKey Highlights:\n✅ Free cancer screenings (including consultations & basic tests)\n✅ Expert medical team conducting evaluations\n✅ Awareness sessions on prevention & early detection\n✅ Open to all—prioritizing low-income families\n\nThis camp is part of our ongoing mission to make healthcare accessible and fight cancer through early intervention. Your participation could help save a life!',
+    image: '/image/projects/upcoming/TENKASI.jpg',
+    status: 'upcoming',
+    beneficiaries: 'Rigistration Joing on',
+    location: 'Tenkasi',
+    date: '"Not scheduled"',
+    link: "#"
+  },
+  {
+    id: '31',
+    title: 'Cancer Medical Camp',
+    category: 'upcoming',
+    description: 'Join us for a free Cancer Medical Check-up Camp, providing essential screenings worth ₹5,000 per person at no cost. Early detection saves lives, and this initiative aims to offer high-quality diagnostic services to 200+ beneficiaries, especially underprivileged communities who lack access to proper healthcare.',
+fullDescription: 'Join us for a free Cancer Medical Check-up Camp, providing essential screenings worth ₹5,000 per person at no cost. Early detection saves lives, and this initiative aims to offer high-quality diagnostic services to 200+ beneficiaries, especially underprivileged communities who lack access to proper healthcare.\n\nKey Highlights:\n✅ Free cancer screenings (including consultations & basic tests)\n✅ Expert medical team conducting evaluations\n✅ Awareness sessions on prevention & early detection\n✅ Open to all—prioritizing low-income families\n\nThis camp is part of our ongoing mission to make healthcare accessible and fight cancer through early intervention. Your participation could help save a life!',
+    image: '/image/projects/upcoming/Kodaikanal.jpg',
+    status: 'upcoming',
+    beneficiaries: '400',
+    location: 'Kodaikanal',
+    date: 'August 21–24, 2024',
+    link: "#"
   }
 ];
