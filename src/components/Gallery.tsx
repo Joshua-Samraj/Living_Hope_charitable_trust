@@ -54,6 +54,9 @@ const Gallery: React.FC = () => {
 {/* New ========== New ================= New */}
 
       <div className="block md:hidden px-4 mb-6">
+        <p className="text-lg md:text-xl text-gray-600">
+                 Filter by category
+              </p>
   <select
     value={selectedCategory}
     onChange={(e) => {
@@ -62,6 +65,7 @@ const Gallery: React.FC = () => {
     }}
     className="w-full p-2 border rounded-md bg-white"
   >
+    
     {categories.map((category) => (
       <option key={category} value={category}>
         {category}
