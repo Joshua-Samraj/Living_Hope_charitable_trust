@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiHeart, FiUsers, FiClock, FiAward, FiSmile, FiChevronDown } from 'react-icons/fi';
+import { FiHeart, FiUsers, FiClock, FiAward, FiSmile } from 'react-icons/fi';
 
 const NewVolunteers = () => {
-  const whatsappNumber = '7305955939';
+  const whatsappNumber = '+919500561937';
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   const benefits = [
@@ -63,44 +63,6 @@ const NewVolunteers = () => {
 
         {/* Benefits Grid */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          {benefits.map((item, index) => (
-            <div
-              key={index}
-              className="group relative h-64 [perspective:1000px]"
-            >
-              <div className="absolute inset-0 transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                {/* Front */}
-                <div className="absolute inset-0 bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center [backface-visibility:hidden]">
-                  <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto text-blue-600">
-                    {item.icon}
-                  </div>
-                  <p className="text-gray-700 font-medium">{item.text}</p>
-                  <div className="absolute bottom-4 text-blue-400">
-                    <FiChevronDown className="w-5 h-5 animate-bounce" />
-                  </div>
-                </div>
-
-
-                {/* Back */}
-                  <div className="absolute inset-0 bg-black text-white p-6 rounded-xl shadow-md border border-blue-100 flex flex-col items-center justify-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
-
-                    <p className="text-sm text-center">{item.details}</p>
-                    <button className="mt-4 text-blue-500 text-sm font-medium flex items-center">
-                      Learn more <FiChevronDown className="ml-1 w-4 h-4" />
-                    </button>
-                  </div>
-
-              </div>
-            </div>
-          ))}
-
-          {/* CTA Card */}
-          <motion.div
             className="bg-gradient-to-r from-blue-500 to-blue-600 p-6 rounded-xl shadow-lg text-white flex flex-col justify-center"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -120,7 +82,6 @@ const NewVolunteers = () => {
               Get Started
             </motion.a>
           </motion.div>
-        </motion.div>
 
         {/* Testimonial and Stats are unchanged, include them as-is */}
       </div>
