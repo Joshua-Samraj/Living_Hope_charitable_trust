@@ -8,20 +8,22 @@ export interface Project {
   theme: string;
   shortDescription: string;
   detailedExplanation: string;
+  imageUrl?: string; // Add this line
 }
 
 export const allProjects: Project[] = [
   { 
     id: 1, 
     date: '2026-04-10', 
-    title: 'Rural School Infrastructure Development', 
-    category: 'Education',
-    location: 'Kanchipuram District',
+    title: 'Fight Against Hunger - 1', 
+    category: 'Food',
+    location: 'Tirunelveli District',
     status: 'Upcoming',
     theme: 'bg-blue-100 text-blue-700',
     shortDescription: 'Building 5 new classrooms and a library for a rural government school.',
-    detailedExplanation: 'This project aims to bridge the educational gap by providing state-of-the-art learning facilities to over 300 underprivileged students. The initiative includes constructing digital classrooms, providing high-quality furniture, setting up a science lab, and ensuring clean drinking water facilities. We are currently mobilizing resources and seeking volunteer educators to assist in the inauguration phase.'
-  },
+    detailedExplanation: 'This project aims to bridge the educational gap by providing state-of-the-art learning facilities to over 300 underprivileged students. The initiative includes constructing digital classrooms, providing high-quality furniture, setting up a science lab, and ensuring clean drinking water facilities. We are currently mobilizing resources and seeking volunteer educators to assist in the inauguration phase.',
+    imageUrl: '/image/projects/FAH-1.jpg'
+},
   { 
     id: 2, 
     date: '2026-04-25', 

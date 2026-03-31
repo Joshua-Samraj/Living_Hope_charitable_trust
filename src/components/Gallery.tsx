@@ -4,50 +4,54 @@ import { galleryImages } from '../data/galleryData';
 import ImageCard from './ImageCard';
 import ImageViewer from './ImageViewer';
 
-const IMAGES_PER_PAGE = 10; // Number of images to load at a time
+const IMAGES_PER_PAGE = 10;
+
+const GhostCard = () => (
+  <div className="w-full aspect-square bg-gray-200 rounded-xl overflow-hidden relative">
+    <div className="absolute inset-0 animate-shimmer" />
+  </div>
+);
 
 const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(IMAGES_PER_PAGE);
-  
-  // State for custom mobile dropdown
+  const [isPageLoading, setIsPageLoading] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Categories extraction
   const categories = useMemo(
     () => ['All', ...Array.from(new Set(galleryImages.map(img => img.category)))],
     []
   );
 
+  // Filter images based on category
   const filteredImages = useMemo(() => {
     return selectedCategory === 'All'
       ? galleryImages
       : galleryImages.filter(img => img.category === selectedCategory);
   }, [selectedCategory]);
 
-  // Slice the images to only show the currently visible count
+  // Handle category change with a small ghost loading delay
+  const handleCategoryChange = (category: string) => {
+    setIsPageLoading(true);
+    setSelectedCategory(category);
+    setVisibleCount(IMAGES_PER_PAGE);
+    setIsDropdownOpen(false);
+    // Smooth transition delay
+    setTimeout(() => setIsPageLoading(false), 600);
+  };
+
   const visibleImages = useMemo(() => {
     return filteredImages.slice(0, visibleCount);
   }, [filteredImages, visibleCount]);
-
-  const handleNext = () => {
-    if (currentIndex !== null) {
-      setCurrentIndex((currentIndex + 1) % filteredImages.length);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex !== null) {
-      setCurrentIndex((currentIndex - 1 + filteredImages.length) % filteredImages.length);
-    }
-  };
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + IMAGES_PER_PAGE);
   };
 
-  // Close dropdown if user clicks outside of it
+  // Close dropdown on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -61,147 +65,98 @@ const Gallery: React.FC = () => {
   return (
     <div className="px-6 py-10 max-w-7xl mx-auto min-h-screen">
       <motion.h1 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -20 }} 
+        animate={{ opacity: 1, y: 0 }} 
         className="mt-10 text-3xl font-bold text-center mb-8 text-gray-900"
       >
         Trust Activity Gallery
       </motion.h1>
 
-      {/* --- CUSTOM MOBILE DROPDOWN --- */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="block md:hidden px-2 mb-8 relative z-30"
-        ref={dropdownRef}
-      >
-        <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wider">Filter Category</p>
-        
+      {/* --- MOBILE DROPDOWN --- */}
+      <div className="block md:hidden px-2 mb-8 relative z-30" ref={dropdownRef}>
         <button
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="w-full bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all"
+          className="w-full bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex justify-between items-center"
         >
           <span className="font-semibold text-gray-800">{selectedCategory}</span>
-          <motion.svg 
-            animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-5 h-5 text-gray-500" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
+          <motion.svg animate={{ rotate: isDropdownOpen ? 180 : 0 }} className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </motion.svg>
         </button>
-
         <AnimatePresence>
           {isDropdownOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
-              animate={{ opacity: 1, y: 0, scaleY: 1 }}
-              exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute top-full left-2 right-2 mt-2 bg-white border border-gray-100 rounded-xl shadow-xl overflow-hidden origin-top"
-            >
-              <div className="max-h-60 overflow-y-auto py-2">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => {
-                      setSelectedCategory(category);
-                      setCurrentIndex(null);
-                      setVisibleCount(IMAGES_PER_PAGE); // Reset count on filter
-                      setIsDropdownOpen(false);
-                    }}
-                    className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors
-                      ${selectedCategory === category 
-                        ? 'bg-red-50 text-red-600 border-l-4 border-red-600 pl-4' 
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-l-4 border-transparent pl-4'
-                      }
-                    `}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="absolute top-full left-2 right-2 mt-2 bg-white border border-gray-100 rounded-xl shadow-xl overflow-hidden origin-top z-50">
+              {categories.map((category) => (
+                <button key={category} onClick={() => handleCategoryChange(category)} className="w-full text-left px-5 py-3 text-sm hover:bg-gray-50">
+                  {category}
+                </button>
+              ))}
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
 
-      {/* --- DESKTOP BUTTON TABS --- */}
-      <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="hidden md:flex flex-wrap gap-3 mb-10 justify-center px-4"
-      >
+      {/* --- DESKTOP TABS --- */}
+      <div className="hidden md:flex flex-wrap gap-3 mb-10 justify-center">
         {categories.map((category) => (
           <button
             key={category}
-            onClick={() => {
-              setSelectedCategory(category);
-              setCurrentIndex(null);
-              setVisibleCount(IMAGES_PER_PAGE); // Reset count on filter
-            }}
-            className={`px-5 py-2.5 rounded-full border text-sm font-medium transition-all duration-300 w-auto max-w-full
-              ${selectedCategory === category 
-                ? 'bg-red-600 border-red-600 text-white shadow-md scale-105' 
-                : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:scale-105'}
-            `}
+            onClick={() => handleCategoryChange(category)}
+            className={`px-5 py-2.5 rounded-full border text-sm font-medium transition-all ${
+              selectedCategory === category ? 'bg-red-600 text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
           >
             {category}
           </button>
         ))}
-      </motion.div>
+      </div>
 
       {/* --- IMAGE GRID --- */}
-      <motion.div 
-        layout
-        className="grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 relative z-10"
-      >
+      <div className="grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 relative z-10">
         <AnimatePresence mode="popLayout">
-          {visibleImages.map((img, index) => (
-            <motion.button
-              layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ 
-                opacity: { duration: 0.2 },
-                layout: { duration: 0.3, type: "spring", bounce: 0.2 }
-              }}
-              key={img.id}
-              onClick={() => setCurrentIndex(index)}
-              className="focus:outline-none group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 relative aspect-square"
-            >
-              <div className="transform group-hover:scale-110 transition-transform duration-500 ease-in-out h-full w-full">
-                <ImageCard url={img.url} title={img.title} />
-              </div>
-            </motion.button>
-          ))}
+          {isPageLoading
+            ? Array.from({ length: 10 }).map((_, i) => (
+                <motion.div key={`skeleton-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                  <GhostCard />
+                </motion.div>
+              ))
+            : visibleImages.map((img, index) => (
+                <motion.button
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  key={img.id}
+                  onClick={() => setCurrentIndex(index)}
+                  className="focus:outline-none aspect-square"
+                >
+                  <ImageCard url={img.url} title={img.title} />
+                </motion.button>
+              ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
 
-      {/* --- LOAD MORE BUTTON --- */}
-      {visibleCount < filteredImages.length && (
+      {/* --- LOAD MORE --- */}
+      {visibleCount < filteredImages.length && !isPageLoading && (
         <div className="mt-12 flex justify-center">
           <button
             onClick={handleLoadMore}
-            className="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-full shadow-sm hover:shadow-md hover:bg-gray-50 hover:text-blue-600 transition-all duration-300"
+            className="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-full shadow-sm hover:shadow-md transition-all"
           >
             Load More Images
           </button>
         </div>
       )}
 
+      {/* --- VIEWER --- */}
       <AnimatePresence>
         {currentIndex !== null && (
           <ImageViewer
             imageUrl={filteredImages[currentIndex].url}
             imageTitle={filteredImages[currentIndex].title}
             onClose={() => setCurrentIndex(null)}
-            onNext={handleNext}
-            onPrev={handlePrev}
+            onNext={() => setCurrentIndex((currentIndex + 1) % filteredImages.length)}
+            onPrev={() => setCurrentIndex((currentIndex - 1 + filteredImages.length) % filteredImages.length)}
           />
         )}
       </AnimatePresence>

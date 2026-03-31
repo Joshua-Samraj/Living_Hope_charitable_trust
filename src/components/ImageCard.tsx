@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface ImageCardProps {
   url: string;
   title: string;
 }
 
-const ImageCard: React.FC<ImageCardProps> = React.memo(({ url, title }) => {
+const ImageCard: React.FC<ImageCardProps> = ({ url, title }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <div className="rounded overflow-hidden shadow-md">
-      <img src={url} alt={title} loading="lazy" // THIS IS CRITICAL FOR PERFORMANCE
-  decoding="async" // Helps prevent the main thread from hanging 
-  className="w-full h-48 object-cover" />
-      {/* <div className="p-2 text-center font-medium">{title}</div> */}
+    <div className="relative w-full h-full bg-gray-200 rounded-xl overflow-hidden group">
+      {/* SHINE PANEL: Only visible while isLoaded is false */}
+      {!isLoaded && (
+        <div className="absolute inset-0 z-10 animate-shimmer" />
+      )}
+      
+      <img
+        src={url}
+        alt={title}
+        onLoad={() => setIsLoaded(true)}
+        loading="lazy"
+        className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      
+      {/* Hover Title */}
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 z-20">
+        <p className="text-white text-xs font-medium truncate">{title}</p>
+      </div>
     </div>
   );
-});
+};
 
 export default ImageCard;

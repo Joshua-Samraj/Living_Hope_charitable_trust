@@ -26,7 +26,25 @@ body {
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
 
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f3f4f6 25%,
+    #ffffff 50%,
+    #f3f4f6 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;

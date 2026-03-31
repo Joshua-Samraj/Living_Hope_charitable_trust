@@ -181,7 +181,7 @@ const Home = () => {
             />
           </AnimatePresence>
           {/* Dark Overlay to make text readable */}
-          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute inset-0 bg-black/80 z-10" />
         </div>
 
         {/* Hero Content */}
