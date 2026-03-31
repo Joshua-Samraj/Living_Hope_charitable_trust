@@ -13,6 +13,7 @@ import CategoryProjects from './components/CategoryProjects';
 import VolunteerForm from './components/VolunteerForm';
 import './index.css';
 import GalleryPage from './pages/GalleryPage';
+import EventCalendar from './pages/EventCalendar';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Route path="/volunteer" element={<VolunteerForm />} />
               {/* <Route path="/gallery" element={<Gallery />} /> */}
               <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/events" element={<EventCalendar />} />
             </Routes>
             <Footer />
           </AnimatePresence>
