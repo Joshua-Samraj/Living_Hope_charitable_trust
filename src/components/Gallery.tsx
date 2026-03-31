@@ -4,9 +4,12 @@ import { galleryImages } from '../data/galleryData';
 import ImageCard from './ImageCard';
 import ImageViewer from './ImageViewer';
 
+const IMAGES_PER_PAGE = 10; // Number of images to load at a time
+
 const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(IMAGES_PER_PAGE);
   
   // State for custom mobile dropdown
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,6 +26,11 @@ const Gallery: React.FC = () => {
       : galleryImages.filter(img => img.category === selectedCategory);
   }, [selectedCategory]);
 
+  // Slice the images to only show the currently visible count
+  const visibleImages = useMemo(() => {
+    return filteredImages.slice(0, visibleCount);
+  }, [filteredImages, visibleCount]);
+
   const handleNext = () => {
     if (currentIndex !== null) {
       setCurrentIndex((currentIndex + 1) % filteredImages.length);
@@ -33,6 +41,10 @@ const Gallery: React.FC = () => {
     if (currentIndex !== null) {
       setCurrentIndex((currentIndex - 1 + filteredImages.length) % filteredImages.length);
     }
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + IMAGES_PER_PAGE);
   };
 
   // Close dropdown if user clicks outside of it
@@ -98,6 +110,7 @@ const Gallery: React.FC = () => {
                     onClick={() => {
                       setSelectedCategory(category);
                       setCurrentIndex(null);
+                      setVisibleCount(IMAGES_PER_PAGE); // Reset count on filter
                       setIsDropdownOpen(false);
                     }}
                     className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors
@@ -128,6 +141,7 @@ const Gallery: React.FC = () => {
             onClick={() => {
               setSelectedCategory(category);
               setCurrentIndex(null);
+              setVisibleCount(IMAGES_PER_PAGE); // Reset count on filter
             }}
             className={`px-5 py-2.5 rounded-full border text-sm font-medium transition-all duration-300 w-auto max-w-full
               ${selectedCategory === category 
@@ -146,7 +160,7 @@ const Gallery: React.FC = () => {
         className="grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 relative z-10"
       >
         <AnimatePresence mode="popLayout">
-          {filteredImages.map((img, index) => (
+          {visibleImages.map((img, index) => (
             <motion.button
               layout
               initial={{ opacity: 0, scale: 0.8 }}
@@ -167,6 +181,18 @@ const Gallery: React.FC = () => {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {/* --- LOAD MORE BUTTON --- */}
+      {visibleCount < filteredImages.length && (
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={handleLoadMore}
+            className="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-full shadow-sm hover:shadow-md hover:bg-gray-50 hover:text-blue-600 transition-all duration-300"
+          >
+            Load More Images
+          </button>
+        </div>
+      )}
 
       <AnimatePresence>
         {currentIndex !== null && (
