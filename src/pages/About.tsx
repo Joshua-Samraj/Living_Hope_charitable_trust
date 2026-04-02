@@ -50,8 +50,8 @@ const About = () => {
         
         {/* Open Graph / Facebook / WhatsApp */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/" />
-        <meta property="og:title" content="Living Hope Charitable Trust" />
+        <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/about" />
+        <meta property="og:title" content="About Page | Living Hope Charitable Trust" />
         <meta property="og:description" content="Supporting rural education, humanitarian aid, and community development." />
         <meta property="og:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" />
       </Helmet>
