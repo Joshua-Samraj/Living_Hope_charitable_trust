@@ -15,16 +15,12 @@ import './index.css';
 import { HelmetProvider } from 'react-helmet-async';
 import GalleryPage from './pages/GalleryPage';
 import EventCalendar from './pages/EventCalendar';
-import { Helmet } from 'react-helmet-async';
+
 
 function App() {
   return (
     <HelmetProvider>
-      {/* <Helmet>
-        <head>
-  <link rel="icon" type="image/png" href="/image/projects/logo.png" />
-</head>
-        </Helmet>       */}
+
     <Router>
       
       <div className="min-h-screen bg-gray-50">
