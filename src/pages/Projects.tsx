@@ -7,7 +7,7 @@ import { categories } from '../data/categories';
 import ProjectCard from '../components/ProjectCard';
 import CategoryCard from '../components/CategoryCard';
 import ProjectModal from '../components/ProjectModal';
-
+import { Helmet } from 'react-helmet-async';
 const Projects = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
@@ -80,6 +80,23 @@ const Projects = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen pt-16 bg-gray-50"
     >
+            <Helmet>
+              <title>Our project</title>
+            <meta 
+                name="description" 
+                content="Founded in 2020, Living Hope Charitable Trust is dedicated to supporting rural education, cancer patients, and humanitarian aid. Join our mission today." 
+              />
+              <meta name="keywords" content="Charity, NGO, Cancer Aid, Rural Education, Food Donation, India Trust, Volunteer" />
+              
+              {/* Open Graph / Facebook / WhatsApp */}
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/" />
+              <meta property="og:title" content="Living Hope Charitable Trust" />
+              <meta property="og:description" content="Supporting rural education, humanitarian aid, and community development." />
+              <meta property="og:image" content="/image/projects/logo.png" /> {/* Use your actual logo or hero image URL */}
+      
+              
+            </Helmet>
       {/* Header */}
       <section className="relative py-20 text-white overflow-hidden">
   {/* Background image with overlay */}

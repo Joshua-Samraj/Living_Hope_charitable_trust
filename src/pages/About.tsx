@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { User, Target, Eye, Award } from 'lucide-react';
 import Globe from '../components/Globe';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import PageBanner from '../components/PageBanner';
+
 const About = () => {
   const values = [
     {
@@ -35,6 +38,27 @@ const About = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen pt-16"
     >
+      <Helmet>
+        =
+
+        <title>About Us | Living Hope Charitable Trust | Empowering Communities</title>
+        <meta 
+          name="description" 
+          content="Founded in 2020, Living Hope Charitable Trust is dedicated to supporting rural education, cancer patients, and humanitarian aid. Join our mission today." 
+        />
+        <meta name="keywords" content="Charity, NGO, Cancer Aid, Rural Education, Food Donation, India Trust, Volunteer" />
+        
+        {/* Open Graph / Facebook / WhatsApp */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/" />
+        <meta property="og:title" content="Living Hope Charitable Trust" />
+        <meta property="og:description" content="Supporting rural education, humanitarian aid, and community development." />
+        <meta property="og:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" />
+      </Helmet>
+
+      {/* CORRECTED PAGE BANNER HERE */}
+      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-blue-50 to-green-50 overflow-hidden">
         <Globe />
@@ -55,6 +79,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
@@ -97,7 +122,6 @@ const About = () => {
         </div>
       </section>
 
-
       {/* Story Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,7 +156,6 @@ const About = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              {/* Modern image box with layered effect */}
               <div className="relative z-10 w-full max-w-md mx-auto">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                   <img
@@ -141,13 +164,8 @@ const About = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
-                {/* Decorative elements */}
-                {/* <div className="absolute -bottom-4 -right-4 w-24 h-24 border-4 border-red-500 rounded-lg z-0"></div>
-                <div className="absolute -top-4 -left-4 w-16 h-16 border-4 border-green-500 rounded-lg z-0"></div> */}
               </div>
               
-              {/* Content overlay */}
               <div className="relative z-20 bg-white p-6 rounded-xl shadow-lg -mt-12 mx-8">
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">Jose Sam</h3>
                 <p className="text-blue-600 font-semibold mb-4">Founder & Chairman</p>
@@ -161,6 +179,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
       {/* Chief Secretary Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -183,7 +202,6 @@ const About = () => {
               viewport={{ once: true }}
               className="relative max-w-md w-full"
             >
-              {/* Modern image box with decorative elements */}
               <div className="relative z-10">
                 <div className="aspect-square w-64 h-64 mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                   <img
@@ -192,13 +210,10 @@ const About = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
-                {/* Decorative shapes */}
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-100 rounded-lg z-0"></div>
                 <div className="absolute -top-6 -left-6 w-20 h-20 bg-green-100 rounded-full z-0"></div>
               </div>
 
-              {/* Content card */}
               <div className="relative z-20 bg-white p-8 rounded-xl shadow-lg -mt-10 mx-6 text-center">
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">Lydia</h3>
                 <div className="mb-4">
@@ -209,33 +224,27 @@ const About = () => {
                 <p className="text-gray-600">
                   "Serving with compassion and dedication to ensure the smooth execution of every initiative that brings hope and transformation."
                 </p>
-                
-                {/* Social links (optional) */}
-                
               </div>
             </motion.div>
           </div>
         </div>
       </section>
+
       {/* Volunteers Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-gray-600 mb-6">Want to join our volunteer team?</p>
-          <Link to="/volunteer">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-colors duration-300">
-              Become a Volunteer
-            </button>
-          </Link>
-        </motion.div>
-
-
-
-      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mt-16"
+      >
+        <p className="text-lg text-gray-600 mb-6">Want to join our volunteer team?</p>
+        <Link to="/volunteer">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-colors duration-300">
+            Become a Volunteer
+          </button>
+        </Link>
+      </motion.div>
 
       {/* Values */}
       <section className="py-20 bg-white">

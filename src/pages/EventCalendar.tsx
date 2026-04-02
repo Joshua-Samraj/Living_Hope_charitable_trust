@@ -60,16 +60,17 @@ const UpcomingProjects: React.FC = () => {
       <div className="flex justify-between items-center mb-6">
         <div className="flex gap-1">
           <button 
-            onClick={() => setCalendarView(v => v === 'months' ? 'days' : 'months')}
-            className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${calendarView === 'months' ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}
-          >
-            {monthNames[currentMonth].substring(0, 3)}
-          </button>
-          <button 
             onClick={() => setCalendarView(v => v === 'years' ? 'days' : 'years')}
             className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${calendarView === 'years' ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}
           >
             {currentYear}
+          </button>
+          <button 
+            onClick={() => setCalendarView(v => v === 'months' ? 'days' : 'months')}
+            className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${calendarView === 'months' ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-gray-100'}`}
+          >
+            {monthNames[currentMonth].substring(0,3)}
+            
           </button>
         </div>
 
@@ -109,7 +110,7 @@ const UpcomingProjects: React.FC = () => {
           {calendarView === 'months' && (
             <motion.div key="months" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="grid grid-cols-3 gap-2 absolute inset-0 bg-white">
               {monthNames.map((m, i) => (
-                <button key={m} onClick={() => { setCurrentMonthDate(new Date(currentYear, i, 1)); setCalendarView('days'); }} className={`h-14 rounded-xl text-xs font-bold transition-all ${i === currentMonth ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-50 text-gray-600 hover:bg-blue-50'}`}>{m.substring(0, 3)}</button>
+                <button key={m} onClick={() => { setCurrentMonthDate(new Date(currentYear, i, 1)); setCalendarView('days'); }} className={`h-14 rounded-xl text-xs font-bold transition-all ${i === currentMonth ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-50 text-gray-600 hover:bg-blue-50'}`}>{m.substring(0,3)}</button>
               ))}
             </motion.div>
           )}
@@ -147,7 +148,7 @@ const UpcomingProjects: React.FC = () => {
         <div className="w-full lg:w-3/4 relative z-10">
           <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-4 md:p-8">
             <div className="mb-6 border-b border-gray-100 pb-4">
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900">Project Roadmap</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900">Upcoming Project</h3>
               <p className="text-gray-500 text-xs mt-1 italic">Showing projects from {new Date(selectedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
             </div>
 

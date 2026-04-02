@@ -13,8 +13,9 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
+            
           >
-            <h3 className="text-lg font-bold mb-3">Living Hope</h3>
+            <h3 className="text-lg font-bold mb-3 ">Living Hope</h3>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
               Empowering communities through education, healthcare, and sustainable development.
             </p>
@@ -58,14 +59,33 @@ const Footer = () => {
           >
             <h3 className="text-lg font-bold mb-3">Contact Us</h3>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center justify-center md:justify-start">
-                <Mail className="h-4 w-4 text-gray-400 mr-2" />
-                <span className="text-gray-400">contact@livinghope.org</span>
-              </li>
-              <li className="flex items-center justify-center md:justify-start">
+              
+              <div className="flex items-center justify-center md:justify-start">
+                <Mail className=' h-4 w-4 text-gray-400 mr-2' />
+              <motion.a
+                href="mailto:j.joshuasamraj@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400"
+                whileTap={{ scale: 0.95 }}
+              >
+                contact@livinghope.org
+              </motion.a>
+              </div>
+              
+              
+              <div className="flex items-center justify-center md:justify-start">
                 <Phone className="h-4 w-4 text-gray-400 mr-2" />
-                <span className="text-gray-400">+91 9500561937</span>
-              </li>
+              <motion.a
+                href="tel:9500561937"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400"
+                whileTap={{ scale: 0.95 }}
+              >
+                +919500561937
+              </motion.a>
+              </div>
               <li className="flex items-start justify-center md:justify-start">
                 <MapPin className="h-4 w-4 text-gray-400 mt-0.5 mr-2 shrink-0" />
                 <span className="text-gray-400 leading-tight">Rose Nagar, Melapalayam-627005</span>
@@ -77,7 +97,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-8 pt-6 text-center">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Living Hope Charitable Trust. All rights reserved.
+            © 2025 Living Hope Charitable Trust. All rights reserved.
           </p>
         </div>
       </div>

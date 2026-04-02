@@ -3,26 +3,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Replace these URLs with actual local images or your own high-res trust photos
 const slideshowImages = [
-  "/image/projects/gallery/hunger/(4).jpg",
+  "/image/projects/gallery/Real_christmas/(5).JPG",
   "/image/projects/gallery/hunger/(5).jpg",
-  
 ];
 
 const NewVolunteers = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const whatsappNumber = '919500561937';
   const message = "Hi, I'm interested in joining as a volunteer. I found this information on your website.";
   const encodedMessage = encodeURIComponent(message);
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
-  // Slideshow Logic: Cycle images every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % slideshowImages.length);
     }, 5000); // 5000ms = 5 seconds
 
-    return () => clearInterval(timer); // Cleanup timer on component unmount
+    return () => clearInterval(timer); 
   }, []);
 
   return (
@@ -87,7 +84,7 @@ const NewVolunteers = () => {
             >
               <AnimatePresence initial={false}>
                 <motion.img 
-                  key={currentImageIndex} // Important: Tells Framer it's a new element to animate
+                  key={currentImageIndex} //Important: Tells Framer it's a new element to animate
                   src={slideshowImages[currentImageIndex]} 
                   alt="Volunteers working together" 
                   initial={{ opacity: 0, scale: 1.1 }} // Cinematic zoom-in

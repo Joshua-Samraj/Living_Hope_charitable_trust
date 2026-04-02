@@ -330,7 +330,7 @@ export const projects: Project[] = [
     link: 'https://youtu.be/riUTH3Z2-sY?feature=shared'
   },
   {
-    id: '24',
+    id: '25',
     title: 'Flood Rescue Operation - 2',
     category: 'disaster',
     description: 'Emergency relief and rehabilitation...',
@@ -343,7 +343,7 @@ export const projects: Project[] = [
     link: 'https://youtu.be/kFCayONr3bU?feature=shared'
   },
   {
-    id: '24',
+    id: '26',
     title: 'Flood Rescue Operation - 3',
     category: 'disaster',
     description: 'Emergency relief and rehabilitation...',
@@ -356,7 +356,7 @@ export const projects: Project[] = [
     link: 'https://youtu.be/s0RNabwJqbI?feature=shared'
   },
   {
-    id: '24',
+    id: '27',
     title: 'Flood Rescue Operation - 4',
     category: 'disaster',
     description: 'Emergency relief and rehabilitation...',
@@ -369,7 +369,7 @@ export const projects: Project[] = [
     link: 'https://youtu.be/1PeGDdXdopM?feature=shared'
   },
   {
-    id: '24',
+    id: '28',
     title: 'Flood Rescue Operation - 5',
     category: 'disaster',
     description: 'Emergency relief and rehabilitation...',
@@ -382,7 +382,7 @@ export const projects: Project[] = [
     link: 'https://youtube.com/watch?v=e64Xh-RQ-jk'
   },
   {
-    id: '24',
+    id: '29',
     title: 'Flood Rescue Operation - 6',
     category: 'disaster',
     description: 'Emergency relief and rehabilitation...',
@@ -395,7 +395,7 @@ export const projects: Project[] = [
     link: 'https://youtu.be/elwFo8i6cRA?feature=shared'
   },
   {
-    id: '25',
+    id: '30',
     title: 'Old Age Pension Scheme',
     category: 'elderly',
     description: 'Monthly support and care for elderly...',
@@ -408,7 +408,7 @@ export const projects: Project[] = [
     link: 'https://youtube.com/watch?v=gYMx_Rgbeuc'
   },
   {
-    id: '26',
+    id: '31',
     title: 'Future Sparks - Education Initiative',
     category: 'education',
     description: 'Providing quality education...',
@@ -421,7 +421,7 @@ export const projects: Project[] = [
     link: 'https://living-hope-charitable-education-website-liart.vercel.app'
   },
   {
-    id: '27',
+    id: '32',
     title: 'Real Christmas - 1',
     category: 'holiday',
     description: 'Spreading joy during Christmas...',
@@ -434,7 +434,7 @@ export const projects: Project[] = [
     link: 'https://youtube.com/watch?v=XON8YadWcNs'
   },
   {
-    id: '27',
+    id: '33',
     title: 'Real Christmas - 2',
     category: 'holiday',
     description: 'Spreading joy during Christmas...',
@@ -447,7 +447,7 @@ export const projects: Project[] = [
     link: 'https://youtu.be/Gg_n8C57bJE?feature=shared'
   },
   {
-    id: '27',
+    id: '34',
     title: 'இந்த Joykitல அப்படி என்னதான் இருக்கு?',
     category: 'holiday',
     description: 'Spreading joy during Christmas...',
@@ -460,7 +460,7 @@ export const projects: Project[] = [
     link: 'https://youtube.com/watch?v=OF1CkhAUA08'
   },
   {
-    id: '27',
+    id: '35',
     title: 'நமது LivinghopeTrustன் உண்மையான கிறிஸ்துமஸ்',
     category: 'holiday',
     description: 'Spreading joy during Christmas...',
@@ -473,7 +473,7 @@ export const projects: Project[] = [
     link: 'https://youtube.com/watch?v=xLC8UGn5h54'
   },
   {
-    id: '28',
+    id: '36',
     title: 'Health Awareness Program',
     category: 'awareness',
     description: 'Community health education...',
@@ -486,7 +486,7 @@ export const projects: Project[] = [
     link: 'https://youtube.com/playlist?list=PL3NkSvlzNuULDHwKHhABadQgVyT8YfoZM&feature=shared'
   },
   {
-    id: '29',
+    id: '37',
     title: 'Youth Leadership Summit',
     category: 'Community',
     description: 'Empowering young leaders...',
@@ -500,7 +500,7 @@ export const projects: Project[] = [
   },
   
   {
-    id: '30',
+    id: '38',
     title: 'Cancer Medical Camp',
     category: 'upcoming',
     description: 'Join us for a free Cancer Medical Check-up Camp, providing essential screenings worth ₹5,000 per person at no cost. Early detection saves lives, and this initiative aims to offer high-quality diagnostic services to 200+ beneficiaries, especially underprivileged communities who lack access to proper healthcare.',
@@ -513,7 +513,7 @@ fullDescription: 'Join us for a free Cancer Medical Check-up Camp, providing ess
     link: "#"
   },
   {
-    id: '31',
+    id: '39',
     title: 'Cancer Medical Camp',
     category: 'upcoming',
     description: 'Join us for a free Cancer Medical Check-up Camp, providing essential screenings worth ₹5,000 per person at no cost. Early detection saves lives, and this initiative aims to offer high-quality diagnostic services to 200+ beneficiaries, especially underprivileged communities who lack access to proper healthcare.',
