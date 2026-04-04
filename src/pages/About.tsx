@@ -95,9 +95,7 @@ const About = () => {
               </div>
               <h3 className="text-lg sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">Our Mission</h3>
               <p className="text-xs sm:text-base text-gray-600 leading-relaxed">
-                To empower underprivileged communities through education, healthcare, and 
-                sustainable development programs while fostering hope, dignity, and self-reliance 
-                among those we serve.
+                We are committed to restoring hope and dignity to the destitutes, orphans, widows, physically challenged individuals, and vulnerable children and youth, by rehabilitating and empowering them through residential care, quality education, and sustainable livelihood opportunities.
               </p>
             </motion.div>
             
@@ -113,9 +111,7 @@ const About = () => {
               </div>
               <h3 className="text-lg sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">Our Vision</h3>
               <p className="text-xs sm:text-base text-gray-600 leading-relaxed">
-                To create a world where every individual has access to basic necessities, 
-                quality education, and opportunities for growth, building stronger, more 
-                resilient communities for future generations.
+                We envision a world where every individual, regardless of circumstance, has the opportunity to thrive and live with dignity.
               </p>
             </motion.div>
           </div>
