@@ -1,23 +1,22 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Replace these URLs with actual local images or your own high-res trust photos
-const slideshowImages = [
+const slideshowImages: string[] = [
   "/image/projects/gallery/Real_christmas/(5).JPG",
   "/image/projects/gallery/hunger/(5).jpg",
 ];
 
-const NewVolunteers = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const whatsappNumber = '919500561937';
-  const message = "Hi, I'm interested in joining as a volunteer. I found this information on your website.";
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+const NewVolunteers: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const whatsappNumber: string = '919500561937';
+  const message: string = "Hi, I'm interested in joining as a volunteer. I found this information on your website.";
+  const encodedMessage: string = encodeURIComponent(message);
+  const whatsappLink: string = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % slideshowImages.length);
-    }, 5000); // 5000ms = 5 seconds
+    }, 5000); 
 
     return () => clearInterval(timer); 
   }, []);
@@ -31,10 +30,8 @@ const NewVolunteers = () => {
     >
       <div className="max-w-7xl w-full space-y-20">
         
-        {/* --- HERO SECTION WITH SLIDESHOW IMAGE --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          {/* Left Content */}
           <motion.div 
             className="text-center lg:text-left space-y-6"
             initial={{ x: -50, opacity: 0 }}
@@ -66,39 +63,34 @@ const NewVolunteers = () => {
             </div>
           </motion.div>
 
-          {/* Right Image Container (Slideshow) */}
           <motion.div
             className="relative"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* Background Decorative Element */}
             <div className="absolute -inset-4 bg-blue-200/50 rounded-3xl blur-2xl -z-10 animate-pulse"></div>
             
-            {/* Main Animated Image Frame */}
             <motion.div
-              animate={{ y: [0, -10, 0] }} // Gentle overall float
+              animate={{ y: [0, -10, 0] }} 
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white aspect-[5/4] bg-gray-900"
             >
               <AnimatePresence initial={false}>
                 <motion.img 
-                  key={currentImageIndex} //Important: Tells Framer it's a new element to animate
+                  key={currentImageIndex} 
                   src={slideshowImages[currentImageIndex]} 
                   alt="Volunteers working together" 
-                  initial={{ opacity: 0, scale: 1.1 }} // Cinematic zoom-in
+                  initial={{ opacity: 0, scale: 1.1 }} 
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }} // Smooth fade-out
-                  transition={{ duration: 1.2, ease: "easeInOut" }} // Soft 1.2s crossfade
+                  exit={{ opacity: 0 }} 
+                  transition={{ duration: 1.2, ease: "easeInOut" }} 
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </AnimatePresence>
 
-              {/* Faint Overlay to ensure readability of the label */}
               <div className="absolute inset-0 bg-black/10 z-10" />
 
-              {/* Image Overlay Label */}
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg z-20">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -114,7 +106,6 @@ const NewVolunteers = () => {
           </motion.div>
         </div>
 
-        {/* --- CALL TO ACTION CARD (Unchanged) --- */}
         <motion.div
           className="bg-gradient-to-r from-blue-600 to-blue-700 p-10 rounded-3xl shadow-xl text-white text-center flex flex-col justify-center items-center"
           initial={{ opacity: 0, y: 30 }}
@@ -131,7 +122,7 @@ const NewVolunteers = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-blue-600 font-bold py-4 px-12 rounded-xl inline-block shadow-lg"
-            whileHover={{ scale: 1.05, shadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
             whileTap={{ scale: 0.95 }}
           >
             Chat with us on WhatsApp

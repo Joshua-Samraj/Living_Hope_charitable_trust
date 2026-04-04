@@ -39,7 +39,7 @@ const About = () => {
       className="min-h-screen pt-16"
     >
       <Helmet>
-        =
+        
 
         <title>About Us | Living Hope Charitable Trust | Empowering Communities</title>
         <meta 

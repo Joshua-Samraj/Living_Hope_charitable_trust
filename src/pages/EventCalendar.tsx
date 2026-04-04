@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { allProjects } from '../data/event';
 import { Users, Calendar } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 type CalendarView = 'days' | 'months' | 'years';
 
@@ -133,6 +134,22 @@ const UpcomingProjects: React.FC = () => {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-screen pt-20 bg-gray-50 pb-24 lg:pb-12">
+      <Helmet>
+        <title>Events Calendar | Living Hope Charitable Trust | Upcoming Programs</title>
+        <meta 
+          name="description" 
+          content="Check out the events calendar for Living Hope Charitable Trust. View upcoming programs, medical camps, educational initiatives, and community events." 
+        />
+        <meta name="keywords" content="Events, Calendar, Upcoming Events, Medical Camp, Educational Program, Community Event, Volunteer" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/events" />
+        <meta property="og:title" content="Events Calendar | Living Hope Charitable Trust" />
+        <meta property="og:description" content="Stay updated with upcoming events and community programs organized by Living Hope Charitable Trust." />
+        <meta property="og:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Events Calendar | Living Hope Charitable Trust" />
+        <meta name="twitter:description" content="View upcoming charitable programs and community events" />
+      </Helmet>
       <div className="mb-8 text-center px-4 max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Upcoming Projects</h2>
         <p className="text-gray-500 mt-2 text-sm md:text-base">Explore the mission and impacts of our upcoming trust activities.</p>

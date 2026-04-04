@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, CheckCircle, Sparkles } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 
 const Donation = () => {
@@ -31,6 +32,23 @@ const Donation = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen pt-16"
     >
+      <Helmet>
+        <title>Donate | Living Hope Charitable Trust | Support Our Cause</title>
+        <meta 
+          name="description" 
+          content="Make a donation to Living Hope Charitable Trust. Support rural education, cancer care, and humanitarian aid. Donate via UPI or bank transfer securely." 
+        />
+        <meta name="keywords" content="Donate, Charity Donation, NGO Donation, Cancer Support, Education, Fund Donation, Living Hope" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/donation" />
+        <meta property="og:title" content="Donate | Living Hope Charitable Trust" />
+        <meta property="og:description" content="Make a donation to support rural education, cancer care, and humanitarian aid programs." />
+        <meta property="og:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Donate to Living Hope Charitable Trust" />
+        <meta name="twitter:description" content="Support our mission to empower communities through education and humanitarian aid." />
+        <meta name="twitter:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-red-50 to-yellow-50 overflow-hidden">
         {/* <DonationAnimation /> */}

@@ -81,21 +81,20 @@ const Projects = () => {
       className="min-h-screen pt-16 bg-gray-50"
     >
             <Helmet>
-              <title>Our project</title>
-            <meta 
+              <title>Projects | Living Hope Charitable Trust | Browse Our Initiatives</title>
+              <meta 
                 name="description" 
-                content="Founded in 2020, Living Hope Charitable Trust is dedicated to supporting rural education, cancer patients, and humanitarian aid. Join our mission today." 
+                content="Explore all projects by Living Hope Charitable Trust. View ongoing and completed initiatives in cancer care, rural education, food security, and humanitarian aid." 
               />
-              <meta name="keywords" content="Charity, NGO, Cancer Aid, Rural Education, Food Donation, India Trust, Volunteer" />
-              
-              {/* Open Graph / Facebook / WhatsApp */}
+              <meta name="keywords" content="Projects, Charity Projects, NGO Projects, Cancer Care, Rural Education, Food Donation, Humanitarian Aid, Volunteer" />
               <meta property="og:type" content="website" />
-              <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/" />
-              <meta property="og:title" content="Living Hope Charitable Trust" />
-              <meta property="og:description" content="Supporting rural education, humanitarian aid, and community development." />
-              <meta property="og:image" content="/image/projects/logo.png" /> {/* Use your actual logo or hero image URL */}
-      
-              
+              <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/projects" />
+              <meta property="og:title" content="Projects | Living Hope Charitable Trust" />
+              <meta property="og:description" content="Discover our community development projects and initiatives making a real difference." />
+              <meta property="og:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content="Projects | Living Hope Charitable Trust" />
+              <meta name="twitter:description" content="Browse our humanitarian and community development initiatives" />
             </Helmet>
       {/* Header */}
       <section className="relative py-20 text-white overflow-hidden">
