@@ -80,21 +80,21 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-2 gap-4 md:gap-12">
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-2xl shadow-lg"
+              className="bg-white p-4 sm:p-8 rounded-2xl shadow-lg flex flex-col"
             >
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-blue-600" />
+              <div className="w-10 h-10 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 sm:mb-6 shrink-0">
+                <Target className="h-5 w-5 sm:h-8 sm:w-8 text-blue-600" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-800 mb-4">Our Mission</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-lg sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">Our Mission</h3>
+              <p className="text-xs sm:text-base text-gray-600 leading-relaxed">
                 To empower underprivileged communities through education, healthcare, and 
                 sustainable development programs while fostering hope, dignity, and self-reliance 
                 among those we serve.
@@ -106,13 +106,13 @@ const About = () => {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-2xl shadow-lg"
+              className="bg-white p-4 sm:p-8 rounded-2xl shadow-lg flex flex-col"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                <Eye className="h-8 w-8 text-green-600" />
+              <div className="w-10 h-10 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 sm:mb-6 shrink-0">
+                <Eye className="h-5 w-5 sm:h-8 sm:w-8 text-green-600" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-800 mb-4">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-lg sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">Our Vision</h3>
+              <p className="text-xs sm:text-base text-gray-600 leading-relaxed">
                 To create a world where every individual has access to basic necessities, 
                 quality education, and opportunities for growth, building stronger, more 
                 resilient communities for future generations.
@@ -121,6 +121,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
 
       {/* Story Section */}
       <section className="py-20 bg-white">

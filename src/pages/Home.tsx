@@ -108,7 +108,7 @@ const Home = () => {
     { icon: Heart, label: 'Projects Completed', value: '200+' },
   ];
 
-  const featuredProjectIds = ['1', '15', '24','30','31','32','36','37']; 
+  const featuredProjectIds = ['1', '15', '24']; 
 
   const featuredProjects = projects.filter(project => 
     featuredProjectIds.includes(project.id)
@@ -180,28 +180,25 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen relative bg-gray-50 dark:bg-slate-900 overflow-x-hidden"
+      className="min-h-screen relative bg-gray-50 overflow-x-hidden"
     >
       <Helmet>
         <title>Home page | Living Hope Charitable Trust | Empowering Communities</title>
-      <meta 
+        <meta 
           name="description" 
           content="Founded in 2020, Living Hope Charitable Trust is dedicated to supporting rural education, cancer patients, and humanitarian aid. Join our mission today." 
         />
         <meta name="keywords" content="Charity, NGO, Cancer Aid, Rural Education, Food Donation, India Trust, Volunteer" />
         
-        {/* Open Graph / Facebook / WhatsApp */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/" />
         <meta property="og:title" content="Living Hope Charitable Trust" />
         <meta property="og:description" content="Supporting rural education, humanitarian aid, and community development." />
-        <meta property="og:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" /> {/* Use your actual logo or hero image URL */}
-
-        
+        <meta property="og:image" content="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" /> 
       </Helmet>
       {ENABLE_COSMIC_ANIMATION && <CosmicNetworkBackground />}
 
-      <section className="relative h-[100svh] flex items-center justify-center overflow-hidden z-10">
+      <section className="relative h-[80svh] md:h-[100svh] flex items-center justify-center overflow-hidden z-10">
         <div className="absolute inset-0 z-0 bg-black">
           <AnimatePresence initial={false}>
             <motion.img
@@ -211,7 +208,7 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
               alt="Trust Activity"
             />
           </AnimatePresence>
@@ -253,7 +250,7 @@ const Home = () => {
         </motion.button>
       </section>
 
-      <section ref={statsRef} className="py-10 md:py-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm relative z-10 border-b dark:border-slate-800">
+      {/* <section ref={statsRef} className="py-10 md:py-20 bg-white/80 backdrop-blur-sm relative z-10 border-b">
         <div className="max-w-7xl mx-auto px-4">
           <div ref={statsScrollRef} className="flex overflow-x-auto pb-4 md:pb-0 md:grid md:grid-cols-3 gap-4 md:gap-8 snap-x snap-mandatory hide-scrollbar">
             {stats.map((stat, index) => (
@@ -263,16 +260,16 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="min-w-[80vw] sm:min-w-[45vw] md:min-w-0 snap-center text-center p-6 md:p-8 bg-white dark:bg-slate-800 shadow-sm rounded-2xl border border-gray-100 dark:border-slate-700 flex flex-col justify-center"
+                className="min-w-[80vw] sm:min-w-[45vw] md:min-w-0 snap-center text-center p-6 md:p-8 bg-white shadow-sm rounded-2xl border border-gray-100 flex flex-col justify-center"
               >
                 <stat.icon className="h-8 w-8 md:h-10 md:w-10 text-blue-600 mx-auto mb-3 md:mb-4" />
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{stat.value}</h3>
-                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">{stat.label}</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-800">{stat.value}</h3>
+                <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section ref={aboutRef} className="py-12 md:py-20 bg-gradient-to-br from-blue-600/95 to-green-500/95 text-white relative z-10 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -297,75 +294,73 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={projectsRef} className="py-12 md:py-24 bg-gray-50 dark:bg-slate-900 relative z-10 overflow-hidden">
+      <section ref={projectsRef} className="py-12 md:py-24 bg-gray-50 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Featured Projects</h2>
-            <Link to="/projects" className="hidden md:flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Featured Projects</h2>
+            <Link to="/projects" className="hidden md:flex items-center text-blue-600 font-semibold hover:underline">
               View All <ChevronRight className="h-4 w-4 ml-1" />
             </Link>
           </div>
-          
-          <div ref={projectsScrollRef} className="flex overflow-x-auto pb-6 md:pb-0 md:grid md:grid-cols-4 gap-4 md:gap-6 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
-            {featuredProjects.map((project, index) => (
-              <motion.div 
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center"
-              >
-                <Link 
-                  to={`/projects/${project.category.toLowerCase()}`}
-                  className="bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden text-left flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="relative h-40 md:h-48 w-full">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="absolute inset-0 w-full h-full object-cover" 
-                      loading="lazy"
-                    />
-                    <div className="absolute top-2 right-2 md:top-3 md:right-3">
-                       <span className={`px-2 py-1 rounded-full text-[10px] md:text-xs font-semibold shadow-sm backdrop-blur-md
-                        ${project.status === 'completed' ? 'bg-green-100/90 text-green-800 dark:bg-green-900/80 dark:text-green-300' 
-                        : project.status === 'active' ? 'bg-blue-100/90 text-blue-800 dark:bg-blue-900/80 dark:text-blue-300' 
-                        : 'bg-orange-100/90 text-orange-800 dark:bg-orange-900/80 dark:text-orange-300'}`}
-                      >
-                        {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
-                      </span>
-                    </div>
-                  </div>
+          <div ref={projectsScrollRef} className="flex overflow-x-auto pb-6 md:pb-0 md:grid md:grid-cols-3 gap-4 md:gap-6 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+        {featuredProjects.map((project, index) => (
+          <motion.div 
+            key={project.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center"
+          >
+            <Link 
+              to={`/projects/${project.category.toLowerCase()}`}
+              className="bg-gray-600 text-white rounded-xl shadow-md overflow-hidden text-left flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="relative h-40 md:h-48 w-full">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="absolute inset-0 w-full h-full object-cover" 
+                  loading="lazy"
+                />
+                <div className="absolute top-2 right-2 md:top-3 md:right-3">
+                  <span className={`px-2 py-1 rounded-full text-[10px] md:text-xs font-semibold shadow-sm backdrop-blur-md
+                    ${project.status === 'completed' ? 'bg-green-100/90 text-green-800' 
+                    : project.status === 'active' ? 'bg-blue-100/90 text-blue-800' 
+                    : 'bg-orange-100/90 text-orange-800'}`}
+                  >
+                    {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
+                  </span>
+                </div>
+              </div>
 
-                  <div className="p-4 md:p-5 flex flex-col flex-grow">
-                    <span className="text-[10px] md:text-xs font-bold text-blue-600 dark:text-blue-400 uppercase mb-1.5 md:mb-2 tracking-wider">
-                      {project.category}
-                    </span>
-                    <h4 className="font-bold text-base md:text-lg mb-1.5 md:mb-2 dark:text-white line-clamp-1 md:line-clamp-2">
-                      {project.title}
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm flex-grow line-clamp-2 mb-3">
-                      {project.description}
-                    </p>
-                    
-                    <div className="mt-auto pt-3 border-t border-gray-100 dark:border-slate-700 flex justify-between items-center text-xs md:text-sm">
-                      <span className="text-gray-500 dark:text-gray-400 flex items-center">
-                        <Calendar className="w-3 h-3 md:w-4 md:h-4 mr-1"/> 
-                        <span className="truncate max-w-[120px]">{project.date}</span>
-                      </span>
-                      <span className="text-blue-600 dark:text-blue-400 font-medium flex items-center group-hover:underline">
-                        Details <ChevronRight className="w-3 h-3 ml-0.5" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
+              <div className="p-4 md:p-5 flex flex-col flex-grow">
+                <span className="text-[10px] md:text-xs font-bold text-blue-300 uppercase mb-1.5 md:mb-2 tracking-wider">
+                  {project.category}
+                </span>
+                <h4 className="font-bold text-base md:text-lg mb-1.5 md:mb-2 text-white line-clamp-1 md:line-clamp-2">
+                  {project.title}
+                </h4>
+                <p className="text-gray-200 text-xs md:text-sm flex-grow line-clamp-2 mb-3">
+                  {project.description}
+                </p>
+                
+                <div className="mt-auto pt-3 border-t border-gray-500 flex justify-between items-center text-xs md:text-sm">
+                  <span className="text-gray-300 flex items-center">
+                    <Calendar className="w-3 h-3 md:w-4 md:h-4 mr-1"/> 
+                    <span className="truncate max-w-[120px]">{project.date}</span>
+                  </span>
+                  <span className="text-blue-300 font-medium flex items-center group-hover:underline">
+                    Details <ChevronRight className="w-3 h-3 ml-0.5" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
           <div className="mt-6 md:hidden text-center">
-            <Link to="/projects" className="inline-block bg-gray-900 dark:bg-white dark:text-gray-900 text-white px-8 py-3 rounded-full text-sm font-bold shadow-md">
+            <Link to="/projects" className="inline-block bg-gray-900 text-white px-8 py-3 rounded-full text-sm font-bold shadow-md">
               View All Projects
             </Link>
           </div>
