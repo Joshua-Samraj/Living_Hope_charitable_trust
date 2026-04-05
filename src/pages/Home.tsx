@@ -188,7 +188,7 @@ const Home = () => {
           name="description" 
           content="Founded in 2020, Living Hope Charitable Trust is dedicated to supporting rural education, cancer patients, and humanitarian aid. Join our mission today." 
         />
-        <meta name="keywords" content="Charity, NGO, Cancer Aid, Rural Education, Food Donation, India Trust, Volunteer" />
+        <meta name="keywords" content="Trust in Tirunelveli, NGO Melapalayam, Living Hope Trust, Charity Tamil Nadu" />
         
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://living-hope-charitable-trust.vercel.app/" />

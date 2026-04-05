@@ -38,6 +38,7 @@ function App() {
               {/* <Route path="/gallery" element={<Gallery />} /> */}
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/events" element={<EventCalendar />} />
+              <Route path="/event-calendar" element={<EventCalendar />} />
             </Routes>
             <Footer />
           </AnimatePresence>
