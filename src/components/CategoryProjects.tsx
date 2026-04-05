@@ -109,6 +109,14 @@ const CategoryProjects = () => {
           >
             {currentCategory?.name || 'Projects'}
           </motion.h1>
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-1xl sm:text-1xl md:text-1xl  mb-2 sm:mb-1"
+          >
+            {currentCategory?.description}
+          </motion.h1>
         </div>
       </section>
 
