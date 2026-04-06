@@ -164,7 +164,7 @@ const About = () => {
               </div>
               
               <div className="relative z-20 bg-white p-6 rounded-xl shadow-lg -mt-12 mx-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Jose Sam</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Joseph Terance Sam</h3>
                 <p className="text-blue-600 font-semibold mb-4">Founder & Chairman</p>
                 <p className="text-gray-600">
                   "Our mission is not just to provide aid, but to empower communities to build 
@@ -202,7 +202,7 @@ const About = () => {
               <div className="relative z-10">
                 <div className="aspect-square w-64 h-64 mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                   <img
-                    src="https://ik.imagekit.io/vc42cyymbb/616f339a-e9a9-4c7f-855d-3d911ef45570.jpeg"
+                    src="image/projects/lydia.png"
                     alt="Chief Secretary"
                     className="w-full h-full object-cover"
                   />
@@ -212,7 +212,7 @@ const About = () => {
               </div>
 
               <div className="relative z-20 bg-white p-8 rounded-xl shadow-lg -mt-10 mx-6 text-center">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Lydia</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Lydia Sherin</h3>
                 <div className="mb-4">
                   <span className="inline-block bg-blue-100 text-blue-600 px-4 py-1 rounded-full font-semibold text-sm">
                     Chief Secretary

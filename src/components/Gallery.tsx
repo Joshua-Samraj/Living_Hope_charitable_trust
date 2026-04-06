@@ -130,7 +130,7 @@ const Gallery: React.FC = () => {
                   onClick={() => setCurrentIndex(index)}
                   className="focus:outline-none aspect-square"
                 >
-                  <ImageCard url={img.url} title={img.title} />
+                  <ImageCard url={img.url} title={img.title} ID = {img.id} />
                 </motion.button>
               ))}
         </AnimatePresence>

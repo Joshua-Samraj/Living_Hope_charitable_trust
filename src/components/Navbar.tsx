@@ -56,7 +56,7 @@ const Navbar = () => {
   const textColorClass = isTransparent ? 'text-white drop-shadow-md' : 'text-black';
   
   // Makes the logo solid white when transparent
-  const logoFilterClass = isTransparent ? 'brightness-0 invert drop-shadow-lg' : '';
+  const logoFilterClass = isTransparent ? ' drop-shadow-lg' : '';
 
   const currentMobileBg = activeItem ? activeItem.mobileBg : 'bg-white';
 

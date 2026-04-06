@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 interface ImageCardProps {
   url: string;
   title: string;
+  ID: string;
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({ url, title }) => {
+const ImageCard: React.FC<ImageCardProps> = ({ url, title, ID }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -27,7 +28,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ url, title }) => {
       
       {/* Hover Title */}
       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 z-20">
-        <p className="text-white text-xs font-medium truncate">{title}</p>
+        <p className="text-white text-xs font-medium truncate">{title}{ID}</p>
       </div>
     </div>
   );

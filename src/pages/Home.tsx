@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Users, Globe, Heart, Calendar, Image as ImageIcon, ChevronRight } from 'lucide-react';
+import { ArrowDown, Users, Globe, Heart, Calendar, Image as ImageIcon, ChevronRight, Home as HomeIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects'; 
 import { Helmet } from 'react-helmet-async';
@@ -89,24 +89,19 @@ const CosmicNetworkBackground = () => {
 };
 
 const heroImages = [
-  "/image/projects/gallery/cancer/(1).jpg",
-  "/image/projects/gallery/hunger/(1).jpg",
+  "/image/projects/(1).png",
+  
 ];
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showLandDetails, setShowLandDetails] = useState(false);
   
   const aboutRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
-  const statsRef = useRef<HTMLElement>(null);
   const statsScrollRef = useRef<HTMLDivElement>(null);
   const projectsScrollRef = useRef<HTMLDivElement>(null);
-
-  const stats = [
-    { icon: Users, label: 'People Helped', value: '10,000+' },
-    { icon: Globe, label: 'Communities Reached', value: '50+' },
-    { icon: Heart, label: 'Projects Completed', value: '200+' },
-  ];
+  const statsRef = useRef<HTMLElement>(null);
 
   const featuredProjectIds = ['1', '15', '24']; 
 
@@ -215,61 +210,123 @@ const Home = () => {
           <div className="absolute inset-0 bg-black/70 z-10" />
         </div>
 
-        <div className="relative z-20 text-center px-4 max-w-6xl mx-auto w-full pt-16 md:pt-0">
-          <motion.h1
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg leading-tight"
-          >
-            Living Hope
-            <span className="block text-2xl sm:text-4xl md:text-5xl text-blue-400 mt-2">Charitable Trust</span>
-          </motion.h1>
+        <div className="relative z-20 px-4 max-w-7xl mx-auto w-full pt-16 md:pt-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            
+            <div className="text-left">
+              <motion.h1
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg leading-tight"
+              >
+                Living Hope
+                <span className="block text-2xl sm:text-4xl md:text-5xl text-blue-400 mt-2">Charitable Trust</span>
+              </motion.h1>
 
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mt-6 md:mt-8">
-            <button 
-              onClick={() => scrollToRef(aboutRef)}
-              className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-3 px-8 rounded-full transition-all duration-300"
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-start items-center mt-6 md:mt-8">
+                <button 
+                  onClick={() => scrollToRef(aboutRef)}
+                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-3 px-8 rounded-full transition-all duration-300"
+                >
+                  Our Mission
+                </button>
+                <Link to="/donation" className="w-full sm:w-auto">
+                  <button className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg">
+                    Donate Now
+                  </button>
+                </Link>
+              </div>
+            </div>
+
+            <motion.div 
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="w-full"
             >
-              Our Mission
-            </button>
-            <Link to="/donation" className="w-full sm:w-auto">
-              <button className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg">
-                Donate Now
-              </button>
-            </Link>
+              <div 
+                onClick={() => setShowLandDetails(!showLandDetails)}
+                className="bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 rounded-3xl cursor-pointer hover:bg-white/20 transition-all duration-300 shadow-2xl overflow-hidden"
+              >
+                <div className="relative h-32 md:h-48 w-full rounded-2xl overflow-hidden mb-4 group">
+                  <img 
+                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                    alt="Sanctuary Development Site" 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between z-10">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2.5 bg-blue-500/30 backdrop-blur-md rounded-full border border-white/20">
+                        <HomeIcon className="text-white h-5 w-5" />
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-white tracking-wide">The Sanctuary Project</h3>
+                    </div>
+                    <ChevronRight className={`text-white transition-transform duration-300 ${showLandDetails ? 'rotate-90' : ''}`} />
+                  </div>
+                </div>
+                
+                <AnimatePresence>
+                  {!showLandDetails && (
+                    <motion.p 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="text-gray-200 text-sm md:text-base px-2"
+                    >
+                      Help us secure a permanent facility. Click to learn how your contribution builds a home for those requiring critical, long-term care.
+                    </motion.p>
+                  )}
+
+                  {showLandDetails && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="space-y-4 px-2 pt-2"
+                    >
+                      <p className="text-blue-100 text-sm md:text-base leading-relaxed">
+                        We are acquiring land to establish a comprehensive care facility with a singular purpose: providing shelter, specialized medical care, and dignity to vulnerable populations.
+                      </p>
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <Heart className="h-5 w-5 text-pink-400 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-white text-sm">Long-term palliative and recovery housing for <strong className="text-pink-300 font-semibold">oncology patients</strong> undergoing treatment.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <Heart className="h-5 w-5 text-green-400 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-white text-sm">A clinical recovery ward for <strong className="text-green-300 font-semibold">unhoused individuals requiring acute wound care</strong> and rehabilitation.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <Heart className="h-5 w-5 text-purple-400 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-white text-sm">A secure, assisted-living environment for <strong className="text-purple-300 font-semibold">elderly individuals without family support</strong>.</span>
+                        </li>
+                      </ul>
+                      <div className="pt-5 mt-5 border-t border-white/20">
+                        <Link to="/donation">
+                          <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg flex items-center justify-center">
+                            Contribute to the Development Fund
+                          </button>
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+
           </div>
         </div>
 
         <motion.button
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          onClick={() => scrollToRef(statsRef)}
+          onClick={() => scrollToRef(aboutRef)}
           className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 hover:text-white z-20"
         >
           <ArrowDown className="h-6 w-6 md:h-8 md:w-8" />
         </motion.button>
       </section>
-
-      {/* <section ref={statsRef} className="py-10 md:py-20 bg-white/80 backdrop-blur-sm relative z-10 border-b">
-        <div className="max-w-7xl mx-auto px-4">
-          <div ref={statsScrollRef} className="flex overflow-x-auto pb-4 md:pb-0 md:grid md:grid-cols-3 gap-4 md:gap-8 snap-x snap-mandatory hide-scrollbar">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="min-w-[80vw] sm:min-w-[45vw] md:min-w-0 snap-center text-center p-6 md:p-8 bg-white shadow-sm rounded-2xl border border-gray-100 flex flex-col justify-center"
-              >
-                <stat.icon className="h-8 w-8 md:h-10 md:w-10 text-blue-600 mx-auto mb-3 md:mb-4" />
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-800">{stat.value}</h3>
-                <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       <section ref={aboutRef} className="py-12 md:py-20 bg-gradient-to-br from-blue-600/95 to-green-500/95 text-white relative z-10 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

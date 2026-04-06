@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const slideshowImages: string[] = [
   "/image/projects/gallery/Real_christmas/(5).JPG",
-  "/image/projects/gallery/hunger/(5).jpg",
+  "/image/projects/gallery/hunger/(3).jpeg",
 ];
 
 const NewVolunteers: React.FC = () => {

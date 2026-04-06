@@ -49,19 +49,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
         className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-34 md:h-100 overflow-hidden rounded-t-2xl">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors duration-200"
-          >
-            <X className="h-6 w-6 text-gray-600" />
-          </button>
-        </div>
+        <div className="relative w-full h-64 md:h-96 overflow-hidden rounded-t-2xl">
+  <img
+    src={project.image}
+    alt={project.title}
+    className="w-full h-full object-cover object-center"
+  />
+  <button
+    onClick={onClose}
+    className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors duration-200 shadow-md"
+  >
+    <X className="h-6 w-6 text-gray-600" />
+  </button>
+</div>
         
         <div className="p-6 md:p-8">
           <div className="flex items-start justify-between mb-4">
@@ -100,7 +100,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             <div className="mt-8 p-6 bg-blue-50 rounded-xl">
               <h3 className="text-xl font-semibold text-blue-800 mb-2">Support As</h3>
               <p className="text-blue-700 mb-4">
-                Watch a video about this project by clicking the link below.
+                Clicking the link below.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 {/* <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">

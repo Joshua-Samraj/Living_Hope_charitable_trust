@@ -92,31 +92,94 @@ const CategoryProjects = () => {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Header */}
-      <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
+     {/* Header / Hero Section */}
+      <section className="relative w-full min-h-[450px] md:h-[600px] overflow-hidden flex items-center py-12 md:py-0">
         {currentCategory?.banner && (
           <div
-            className="absolute inset-0 z-0 bg-cover bg-center brightness-[0.2]"
+            className="absolute inset-0 z-0 bg-cover bg-center brightness-[0.15]"
             style={{ backgroundImage: `url(${currentCategory.banner})` }}
           />
         )}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center text-white">
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4"
-          >
-            {currentCategory?.name || 'Projects'}
-          </motion.h1>
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-1xl sm:text-1xl md:text-1xl  mb-2 sm:mb-1"
-          >
-            {currentCategory?.description}
-          </motion.h1>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            
+            {/* Left Side: Category Info */}
+            <div className="text-left text-white space-y-4">
+              
+
+              <motion.h1
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                /* Dynamic Font Size for Title: Shrinks if name is long */
+                className={`font-bold leading-tight ${
+                  (currentCategory?.name?.length ?? 0) > 20 
+                    ? 'text-2xl sm:text-3xl md:text-5xl' 
+                    : 'text-3xl sm:text-4xl md:text-6xl'
+                }`}
+              >
+                {currentCategory?.name || 'Projects'}
+              </motion.h1>
+
+              <motion.p
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                style={{ whiteSpace: 'pre-line' }}
+                /* Dynamic Font Size & Overflow for Description */
+                className={`text-gray-300 max-w-lg leading-relaxed line-clamp-4 md:line-clamp-none ${
+                  (currentCategory?.description?.length ?? 0) > 150 
+                    ? 'text-sm md:text-base' 
+                    : 'text-base md:text-lg'
+                }`}
+              >
+                {currentCategory?.description}
+              </motion.p>
+            </div>
+
+            {/* Right Side: Featured (First) Project */}
+            {categoryProjects.length > 0 && (
+              <motion.div
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="hidden md:block"
+              >
+                <div 
+                  onClick={(e) => handleProjectClick(categoryProjects[0], e)}
+                  className="group cursor-pointer relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300 shadow-2xl"
+                >
+                  <div className="relative h-60 overflow-hidden rounded-xl mb-4">
+                    <img 
+                      src={categoryProjects[0].image} 
+                      alt={categoryProjects[0].title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute top-3 right-3 px-3 py-1 bg-blue-600 text-[10px] text-white rounded-full">
+                      Featured Project
+                    </div>
+                  </div>
+                  
+                  {/* Project Title Shrinking Logic */}
+                  <h3 className={`font-bold text-white mb-2 transition-all ${
+                    categoryProjects[0].title.length > 25 ? 'text-lg' : 'text-xl'
+                  }`}>
+                    {categoryProjects[0].title}
+                  </h3>
+
+                  {/* Project Description Overflow Logic */}
+                  <p  className="text-gray-300 text-xs sm:text-sm line-clamp-2 group-hover:line-clamp-3 transition-all duration-300">
+                    {categoryProjects[0].description}
+                  </p>
+                  
+                  <div className="mt-4 flex items-center text-blue-400 font-medium text-xs group-hover:text-blue-300">
+                    View Details →
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
         </div>
       </section>
 
