@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Users, Globe, Heart, Calendar, Image as ImageIcon, ChevronRight, Home as HomeIcon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowDown, Users, Globe, Heart, Calendar, Image as ImageIcon, ChevronRight, Home as HomeIcon, AlertTriangle, TrendingUp, Share2, Check } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { projects } from '../data/projects'; 
 import { Helmet } from 'react-helmet-async';
 
@@ -89,19 +89,27 @@ const CosmicNetworkBackground = () => {
 };
 
 const heroImages = [
-  "/image/projects/(1).png",
-  
+  "/image/projects/gallery/good_samariten/patti.jpeg",
+];
+
+const emergencyImages = [
+  "image/projects/gallery/good_samariten/patti.jpeg",
+  "image/projects/gallery/good_samariten/(1).jpg",
+  "image/projects/gallery/good_samariten/(1).png",
 ];
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentEmergencyImageIndex, setCurrentEmergencyImageIndex] = useState(0);
   const [showLandDetails, setShowLandDetails] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   
   const aboutRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
   const statsScrollRef = useRef<HTMLDivElement>(null);
   const projectsScrollRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLElement>(null);
+  const emergencyRef = useRef<HTMLElement>(null);
+  const location = useLocation();
 
   const featuredProjectIds = ['1', '15', '24']; 
 
@@ -109,11 +117,66 @@ const Home = () => {
     featuredProjectIds.includes(project.id)
   );
 
+  const targetAmount = 15000000; 
+  const currentAmount = 100000; 
+  const progressPercentage = Math.min((currentAmount / targetAmount) * 100, 100);
+
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(amount);
+  };
+
+  useEffect(() => {
+    if (location.pathname === '/emergency' || location.hash === '#emergency') {
+      const scrollToEmergency = () => {
+        if (emergencyRef.current) {
+          emergencyRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setShowLandDetails(true);
+        }
+      };
+
+      scrollToEmergency();
+      const timer = setTimeout(scrollToEmergency, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, location.hash]);
+
+  const handleShare = async () => {
+    const url = `${window.location.origin}${window.location.pathname}emergency`;
+    const shareData = {
+      title: 'Emergency Need - Living Hope Charitable Trust',
+      text: 'Your immediate support is required for our critical development project.',
+      url: url
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error('Error sharing:', err);
+      }
+    } else {
+      navigator.clipboard.writeText(url);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    }
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const emergencyTimer = setInterval(() => {
+      setCurrentEmergencyImageIndex((prevIndex) => (prevIndex + 1) % emergencyImages.length);
+    }, 4000);
+    return () => clearInterval(emergencyTimer);
   }, []);
 
   useEffect(() => {
@@ -238,83 +301,6 @@ const Home = () => {
               </div>
             </div>
 
-            <motion.div 
-              initial={{ x: 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="w-full"
-            >
-              <div 
-                onClick={() => setShowLandDetails(!showLandDetails)}
-                className="bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 rounded-3xl cursor-pointer hover:bg-white/20 transition-all duration-300 shadow-2xl overflow-hidden"
-              >
-                <div className="relative h-32 md:h-48 w-full rounded-2xl overflow-hidden mb-4 group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                    alt="Sanctuary Development Site" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between z-10">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2.5 bg-blue-500/30 backdrop-blur-md rounded-full border border-white/20">
-                        <HomeIcon className="text-white h-5 w-5" />
-                      </div>
-                      <h3 className="text-xl md:text-2xl font-bold text-white tracking-wide">The Sanctuary Project</h3>
-                    </div>
-                    <ChevronRight className={`text-white transition-transform duration-300 ${showLandDetails ? 'rotate-90' : ''}`} />
-                  </div>
-                </div>
-                
-                <AnimatePresence>
-                  {!showLandDetails && (
-                    <motion.p 
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="text-gray-200 text-sm md:text-base px-2"
-                    >
-                      Help us secure a permanent facility. Click to learn how your contribution builds a home for those requiring critical, long-term care.
-                    </motion.p>
-                  )}
-
-                  {showLandDetails && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="space-y-4 px-2 pt-2"
-                    >
-                      <p className="text-blue-100 text-sm md:text-base leading-relaxed">
-                        We are acquiring land to establish a comprehensive care facility with a singular purpose: providing shelter, specialized medical care, and dignity to vulnerable populations.
-                      </p>
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <Heart className="h-5 w-5 text-pink-400 mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-white text-sm">Long-term palliative and recovery housing for <strong className="text-pink-300 font-semibold">oncology patients</strong> undergoing treatment.</span>
-                        </li>
-                        <li className="flex items-start">
-                          <Heart className="h-5 w-5 text-green-400 mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-white text-sm">A clinical recovery ward for <strong className="text-green-300 font-semibold">unhoused individuals requiring acute wound care</strong> and rehabilitation.</span>
-                        </li>
-                        <li className="flex items-start">
-                          <Heart className="h-5 w-5 text-purple-400 mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-white text-sm">A secure, assisted-living environment for <strong className="text-purple-300 font-semibold">elderly individuals without family support</strong>.</span>
-                        </li>
-                      </ul>
-                      <div className="pt-5 mt-5 border-t border-white/20">
-                        <Link to="/donation">
-                          <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg flex items-center justify-center">
-                            Contribute to the Development Fund
-                          </button>
-                        </Link>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-
           </div>
         </div>
 
@@ -338,9 +324,7 @@ const Home = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Our Mission</h2>
             <p className="text-base md:text-xl mb-6 md:mb-8 mx-auto opacity-90 leading-relaxed">
-              Founded by Jose Sam in 2020, Living Hope Charitable Trust is dedicated to supporting
-              rural education, humanitarian aid, and community development initiatives that create
-              lasting positive change.
+              We are committed to restoring hope and dignity to the destitutes, orphans, widows, physically challenged individuals, and vulnerable children and youth, by rehabilitating and empowering them through residential care, quality education, and sustainable livelihood opportunities.
             </p>
             <Link to="/about">
               <button className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-2.5 px-6 md:py-3 md:px-8 rounded-full transition-colors duration-300 shadow-lg text-sm md:text-base">
@@ -349,6 +333,167 @@ const Home = () => {
             </Link>
           </motion.div>
         </div>
+      </section>
+
+      <section id="emergency" ref={emergencyRef} className="py-12 md:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 scroll-mt-20">
+        <div className="flex flex-col items-center justify-center mb-6 md:mb-8 text-center relative group">
+          <div className="flex items-center space-x-3 mb-1.5 md:mb-2">
+            <motion.div 
+              animate={{ scale: [1, 1.2, 1] }} 
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            >
+              <AlertTriangle className="text-red-600 h-6 w-6 md:h-8 md:w-8 drop-shadow-md" />
+            </motion.div>
+            
+            <div className="flex items-center">
+              <h2 className="text-3xl md:text-4xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500 uppercase tracking-tight">
+                Emergency need
+              </h2>
+              <button 
+                onClick={handleShare}
+                className="ml-4 p-1.5 md:p-2 bg-white shadow-sm hover:shadow-md border border-gray-200 rounded-full transition-all group-hover:opacity-100 md:opacity-0"
+                title="Share this section"
+              >
+                {isCopied ? <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500" /> : <Share2 className="h-4 w-4 md:h-5 md:w-5 text-gray-500" />}
+              </button>
+            </div>
+
+            <motion.div 
+              animate={{ scale: [1, 1.2, 1] }} 
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 0.2 }}
+            >
+              <AlertTriangle className="text-red-600 h-6 w-6 md:h-8 md:w-8 drop-shadow-md" />
+            </motion.div>
+          </div>
+          <p className="text-gray-600 font-semibold text-sm md:text-base">Your immediate support is required for our critical development project.</p>
+        </div>
+        
+        <motion.div 
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="w-full relative"
+        >
+          <div className="absolute -inset-2 bg-gradient-to-r from-red-500 via-orange-500 to-red-500 rounded-[2.5rem] blur-lg opacity-40 animate-pulse"></div>
+
+          <div className="relative bg-gray-900 border border-red-500/30 p-4 md:p-6 lg:p-8 rounded-3xl shadow-2xl overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 to-orange-500"></div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+              
+              <div className="relative h-60 md:h-80 lg:h-full lg:min-h-[450px] w-full rounded-2xl overflow-hidden group-hover:shadow-lg transition-shadow">
+                <AnimatePresence initial={false}>
+                  <motion.img 
+                    key={currentEmergencyImageIndex}
+                    src={emergencyImages[currentEmergencyImageIndex]}
+                    alt="Sanctuary Development Site" 
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 flex items-center z-10">
+                  <div className="p-2 md:p-3 bg-red-500/30 backdrop-blur-md rounded-full border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.5)] mr-3 md:mr-4">
+                    <HomeIcon className="text-white h-5 w-5 md:h-6 md:w-6" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white tracking-wide">Living Hope Anbu Illam</h3>
+                </div>
+              </div>
+
+              <div 
+                onClick={() => setShowLandDetails(!showLandDetails)}
+                className="flex flex-col justify-center cursor-pointer"
+              >
+                <div className="flex justify-between items-center mb-4 md:mb-6">
+                  <h4 className="text-red-400 font-bold tracking-wider uppercase text-sm md:text-base">Project Status</h4>
+                  <ChevronRight className={`text-gray-400 h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 ${showLandDetails ? 'rotate-90' : ''}`} />
+                </div>
+
+                <div className="mb-4">
+                  <div className="flex justify-between items-end mb-2">
+                    <div>
+                      <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-0.5 md:mb-1">Funds Raised</p>
+                      <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">{formatCurrency(currentAmount)}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-0.5 md:mb-1">Target Goal</p>
+                      <p className="text-red-400 text-base md:text-lg lg:text-xl font-bold">₹1.5 Crores</p>
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-800/80 rounded-full h-2 md:h-3 overflow-hidden border border-white/5 relative">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${progressPercentage}%` }}
+                      transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="bg-gradient-to-r from-red-600 to-orange-500 h-full rounded-full relative overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-white/20 animate-[pulse_2s_ease-in-out_infinite]"></div>
+                    </motion.div>
+                  </div>
+                  <div className="flex justify-between items-center mt-2 md:mt-3">
+                    <span className="text-orange-400 text-xs font-bold flex items-center bg-orange-500/10 px-2 py-1 rounded-md">
+                      <TrendingUp className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" /> {progressPercentage.toFixed(1)}% Funded
+                    </span>
+                    <span className="text-gray-400 text-[10px] md:text-xs font-medium">Join {Math.floor(currentAmount / 2500)} supporters</span>
+                  </div>
+                </div>
+                
+                <AnimatePresence>
+                  {!showLandDetails && (
+                    <motion.p 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="text-gray-300 text-sm md:text-base font-medium mt-2"
+                    >
+                      Help us secure a permanent facility. Click to learn how your contribution builds a home for those requiring critical, long-term care.
+                    </motion.p>
+                  )}
+
+                  {showLandDetails && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="space-y-3 md:space-y-4 pt-2"
+                    >
+                      <p className="text-red-100 text-sm md:text-base leading-relaxed font-medium">
+                        We are acquiring land to establish a comprehensive care facility with a singular purpose: providing shelter, specialized medical care, and dignity to vulnerable populations.
+                      </p>
+                      <ul className="space-y-2 md:space-y-3 bg-black/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-white/5">
+                        <li className="flex items-start">
+                          <Heart className="h-4 w-4 md:h-5 md:w-5 text-pink-400 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-white text-xs md:text-sm lg:text-base">Long-term palliative and recovery housing for <strong className="text-pink-300 font-bold">oncology patients</strong> undergoing treatment.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <Heart className="h-4 w-4 md:h-5 md:w-5 text-green-400 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-white text-xs md:text-sm lg:text-base">A clinical recovery ward for <strong className="text-green-300 font-bold">unhoused individuals requiring acute wound care</strong> and rehabilitation.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <Heart className="h-4 w-4 md:h-5 md:w-5 text-purple-400 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-white text-xs md:text-sm lg:text-base">A secure, assisted-living environment for <strong className="text-purple-300 font-bold">elderly individuals without family support</strong>.</span>
+                        </li>
+                      </ul>
+                      <div className="pt-3 mt-3 md:pt-4 md:mt-4 border-t border-red-500/30">
+                        <Link to="/donation" onClick={(e) => e.stopPropagation()}>
+                          <button className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-extrabold py-3 md:py-3.5 text-base md:text-lg rounded-xl transition-all shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:shadow-[0_0_25px_rgba(220,38,38,0.6)] flex items-center justify-center transform hover:-translate-y-1">
+                            Contribute to the Development Fund
+                          </button>
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       <section ref={projectsRef} className="py-12 md:py-24 bg-gray-50 relative z-10 overflow-hidden">
@@ -443,6 +588,9 @@ const Home = () => {
         .hide-scrollbar {
           -ms-overflow-style: none;
           scrollbar-width: none;
+        }
+        html {
+          scroll-behavior: smooth;
         }
       `}</style>
     </motion.div>

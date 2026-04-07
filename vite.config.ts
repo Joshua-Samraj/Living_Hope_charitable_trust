@@ -7,4 +7,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  // base: '/wp-content/reactpress/apps/living-hope/dist/',
+
 });

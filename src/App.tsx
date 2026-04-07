@@ -39,6 +39,7 @@ function App() {
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/events" element={<EventCalendar />} />
               <Route path="/event-calendar" element={<EventCalendar />} />
+              <Route path="/emergency" element={<Home />} /> {/* Add this line! */}
             </Routes>
             <Footer />
           </AnimatePresence>
