@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -16,36 +16,40 @@ import { HelmetProvider } from 'react-helmet-async';
 import GalleryPage from './pages/GalleryPage';
 import EventCalendar from './pages/EventCalendar';
 
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait" initial={true}>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:category" element={<CategoryProjects />} />
+        <Route path="/donation" element={<Donation />} />
+        <Route path="/volunteer" element={<VolunteerForm />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/events" element={<EventCalendar />} />
+        <Route path="/event-calendar" element={<EventCalendar />} />
+        <Route path="/emergency" element={<Home />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 function App() {
   return (
     <HelmetProvider>
-
-    <Router>
-      
-      <div className="min-h-screen bg-gray-50">
-        <Navbar />
-        <Suspense fallback={<LoadingSpinner />}>
-          <AnimatePresence mode="wait" initial={true}>  
-            <Scrolltop />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/:category" element={<CategoryProjects />} />
-              <Route path="/donation" element={<Donation />} />
-              <Route path="/volunteer" element={<VolunteerForm />} />
-              {/* <Route path="/gallery" element={<Gallery />} /> */}
-              <Route path="/gallery" element={<GalleryPage />} />
-              <Route path="/events" element={<EventCalendar />} />
-              <Route path="/event-calendar" element={<EventCalendar />} />
-              <Route path="/emergency" element={<Home />} /> {/* Add this line! */}
-            </Routes>
-            <Footer />
-          </AnimatePresence>
-        </Suspense>
-      </div>
-    </Router>
+      <Router>
+        <div className="min-h-screen bg-gray-50">
+          <Navbar />
+          <Scrolltop />
+          <Suspense fallback={<LoadingSpinner />}>
+            <AnimatedRoutes />
+          </Suspense>
+          <Footer />
+        </div>
+      </Router>
     </HelmetProvider>
   );
 }

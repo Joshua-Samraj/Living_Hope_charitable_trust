@@ -443,9 +443,10 @@ const Home = () => {
                   </div>
                 </div>
                 
-                <AnimatePresence>
+                <AnimatePresence mode="wait">
                   {!showLandDetails && (
                     <motion.p 
+                      key="summary"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
@@ -457,6 +458,7 @@ const Home = () => {
 
                   {showLandDetails && (
                     <motion.div
+                      key="details"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
