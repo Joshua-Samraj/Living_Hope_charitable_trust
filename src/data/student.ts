@@ -9,6 +9,7 @@ export interface Student {
   image: string;
   detailRoute: string;
   paymentLink: string;
+  gender: 'Male' | 'Female';
 }
 
 export const students: Student[] = [
@@ -20,9 +21,10 @@ export const students: Student[] = [
     location: "Reddiarpatti,Tirunelveli,Tamil Nadu", 
     need: "₹5,000", 
     details: "Books,Bag,Notes,Stationery Kit,Tuition Fees",
-    image: "/image/manis_kumar.png", 
+    image: "/image/projects/student_image/manis kumar.png", 
     detailRoute: "/student/manish-kumar",
-    paymentLink: "https://rzp.io/rzp/KlbNjlA4"
+    paymentLink: "https://rzp.io/rzp/KlbNjlA4",
+    gender: "Male"
   },
   { 
     id: "lhctfs_002",
@@ -32,9 +34,10 @@ export const students: Student[] = [
     location: "Itteri Pudhu Kulam,Tirunelveli", 
     need: "₹14,500", 
     details: "School Fees,Uniform,Bag",
-    image: "/image/subarna.png", 
+    image: "/image/projects/student_image/manis kumar.png", 
     detailRoute: "/student/subarna-a",
-    paymentLink: "https://rzp.io/rzp/krU7w0uS"
+    paymentLink: "https://rzp.io/rzp/krU7w0uS",
+    gender: "Female"
   },
   { 
     id: "lhctfs_003",
@@ -44,9 +47,10 @@ export const students: Student[] = [
     location: "Anavarathanallur,Thoothukkudi, Tamil Nadu", 
     need: "₹14,500", 
     details: "Books,Uniform,Tuition Fees,Bag",
-    image: "/image/bramamuthu.png",
+    image: "/image/projects/student_image/manis kumar.png",
     detailRoute: "/student/bramamuthu",
-    paymentLink: "https://rzp.io/rzp/X6huyd9Z"
+    paymentLink: "https://rzp.io/rzp/X6huyd9Z",
+    gender: "Male"
   },
   { 
     id: "lhctfs_004",
@@ -56,9 +60,10 @@ export const students: Student[] = [
     location: "Eruvadi,Tirunelveli,Tamil Nadu",
     need: "₹19,850", 
     details: "Books,Uniform,Bag",
-    image: "/image/riona_lithsha.png",
+    image: "/image/projects/student_image/manis kumar.png",
     detailRoute: "/student/riona-lithesha",
-    paymentLink: "https://rzp.io/rzp/SqerDit"
+    paymentLink: "https://rzp.io/rzp/SqerDit",
+    gender: "Female"
   },
   { 
     id: "lhctfs_005",
@@ -68,9 +73,10 @@ export const students: Student[] = [
     location: "Eruvadi,Tirunelveli,Tamil Nadu", 
     need: "₹24,500", 
     details: "Books,Stationery Kit,Uniform,Bag",
-    image: "/image/varshini.png",
+    image: "/image/projects/student_image/manis kumar.png",
     detailRoute: "/student/varshini",
-    paymentLink: "https://rzp.io/rzp/a2gVzfb1"
+    paymentLink: "https://rzp.io/rzp/a2gVzfb1",
+    gender: "Female"
   },
   { 
     id: "lhctfs_006",
@@ -80,9 +86,10 @@ export const students: Student[] = [
     location: "Tirunelveli, Tamil Nadu", 
     need: "₹1,11,000",
     details: "1 year of study",
-    image: "/image/boy.png", 
+    image: "/image/projects/student_image/manis kumar.png", 
     detailRoute: "/student/joshua-j",
-    paymentLink: "https://rzp.io/rzp/9bpFu0w"
+    paymentLink: "https://rzp.io/rzp/9bpFu0w",
+    gender: "Male"
   },
   { 
     id: "lhctfs_007",
@@ -92,9 +99,10 @@ export const students: Student[] = [
     location: "Tirunelveli, Tamil Nadu", 
     need: "₹21,000",
     details: "1 year of study",
-    image: "/image/sandru_mugin.jpg", 
+    image: "/image/projects/student_image/manis kumar.png", 
     detailRoute: "/student/sandru-mugin",
-    paymentLink: "https://rzp.io/rzp/w14o9lG"
+    paymentLink: "https://rzp.io/rzp/w14o9lG",
+    gender: "Male"
   },
   { 
     id: "lhctfs_008",
@@ -104,9 +112,10 @@ export const students: Student[] = [
     location: "Paruthipadu,Tirunelveli", 
     need: "₹21,000",
     details: "1 year of study",
-    image: "/image/saran_mari_2.jpg",
+    image: "/image/projects/student_image/manis kumar.png",
     detailRoute: "/student/saran-mari",
-    paymentLink: "https://rzp.io/rzp/R6yGyX4"
+    paymentLink: "https://rzp.io/rzp/R6yGyX4",
+    gender: "Male"
   },
   { 
     id: "lhctfs_009",
@@ -116,8 +125,9 @@ export const students: Student[] = [
     location: "Sankarankovil , Tenkasi",
     need: "₹26,000",
     details: "Books,Bag,Uniform,school fees,Van Fees", 
-    image: "/image/sathya.png",
+    image: "/image/projects/student_image/manis kumar.png",
     detailRoute: "/student/sathya-k",
-    paymentLink: "https://rzp.io/rzp/R6yGyX4"
+    paymentLink: "https://rzp.io/rzp/R6yGyX4",
+    gender: "Female"
   }
 ];

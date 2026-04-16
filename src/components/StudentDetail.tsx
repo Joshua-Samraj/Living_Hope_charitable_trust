@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin, GraduationCap, Heart, BookOpen, ShieldAlert, CreditCard, Share2 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
-import { students } from '../data/student'; // Adjust the import path as needed
+import { students } from '../data/student'; 
 
 const StudentDetail: React.FC = () => {
   const { studentSlug } = useParams<{ studentSlug: string }>();
   const navigate = useNavigate();
   const [showQRModal, setShowQRModal] = useState(false);
 
-  // Find the student based on the URL parameter
-  // Matches the end of the detailRoute (e.g., "joshua-j" from "/student/joshua-j")
   const student = students.find(s => s.detailRoute.split('/').pop() === studentSlug);
 
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
 
-    // Security measures from your original code
     const handleContextmenu = (e: MouseEvent) => e.preventDefault();
     document.addEventListener('contextmenu', handleContextmenu);
     return () => document.removeEventListener('contextmenu', handleContextmenu);
@@ -36,8 +32,6 @@ const StudentDetail: React.FC = () => {
     );
   }
 
-  // Mocking extended details that were in your HTML but not in the base array.
-  // In a real app, you would add these directly to your `students` data array.
   const extendedDetails = {
     school: "Francis Xavier College of Engineering",
     academicPerformance: "Scoring above 85% in all subjects",
@@ -56,7 +50,6 @@ const StudentDetail: React.FC = () => {
         <meta name="description" content={`Support ${student.name}'s education. Help needed: ${student.need}`} />
       </Helmet>
 
-      {/* Header */}
       <header className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-6 px-4 shadow-md sticky top-0 z-30">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <button 
@@ -72,18 +65,20 @@ const StudentDetail: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 pt-8">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             
-            {/* Image Section */}
             <div className="relative h-80 md:h-full min-h-[400px] bg-gray-200">
               <img 
                 src={student.image} 
                 alt={student.name}
                 className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none"
                 draggable="false"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = student.gender?.toLowerCase() === 'Female' ? '/image/projects/student_image/girl.png' : '/image/projects/student_image/boy.png';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6">
@@ -97,11 +92,9 @@ const StudentDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Details Section */}
             <div className="p-6 md:p-8 flex flex-col">
               <div className="space-y-6 flex-grow">
                 
-                {/* Basic Stats */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
                     <p className="text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">Age</p>
@@ -116,7 +109,6 @@ const StudentDetail: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Academic Info */}
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 flex items-center border-b pb-2 mb-3">
                     <BookOpen className="h-5 w-5 mr-2 text-indigo-600" /> Academic Profile
@@ -128,7 +120,6 @@ const StudentDetail: React.FC = () => {
                   </ul>
                 </div>
 
-                {/* Background Story */}
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 flex items-center border-b pb-2 mb-3">
                     <Heart className="h-5 w-5 mr-2 text-red-500" /> Family Background
@@ -138,18 +129,17 @@ const StudentDetail: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Funding Need Highlight */}
                 <div className="bg-[#2c3e50] p-5 rounded-2xl shadow-inner mt-6 border-l-4 border-yellow-400">
                   <p className="text-blue-200 text-sm font-semibold uppercase tracking-wider mb-1">Total Help Needed</p>
                   <p className="text-3xl font-extrabold text-[#edfa00]">{student.need}</p>
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="mt-8 space-y-3">
                 <p className="text-center text-sm font-medium text-gray-500 italic mb-4">
                   "Your donation can be the turning point in this student's life."
                 </p>
+                
                 <a 
                   href={student.paymentLink}
                   target="_blank"
@@ -158,11 +148,19 @@ const StudentDetail: React.FC = () => {
                 >
                   <CreditCard className="h-5 w-5 mr-2" /> Donate Now via Razorpay
                 </a>
+                
                 <button 
                   onClick={() => setShowQRModal(true)}
                   className="w-full bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-700 font-bold py-3 rounded-xl transition-colors"
                 >
                   Show QR Code
+                </button>
+
+                <button 
+                  onClick={() => navigate(-1)}
+                  className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 rounded-xl transition-colors flex items-center justify-center"
+                >
+                  <ArrowLeft className="h-5 w-5 mr-2" /> Back to Previous Step
                 </button>
               </div>
 
@@ -171,7 +169,6 @@ const StudentDetail: React.FC = () => {
         </div>
       </main>
 
-      {/* QR Code Modal (Similar to your HTML structure) */}
       {showQRModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <motion.div 

@@ -50,7 +50,7 @@ const FutureSparksHome: React.FC = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            src="https://ik.imagekit.io/vc42cyymbb/logo.png?updatedAt=1754075020511" 
+            src="image/projects/logo_final.png" 
             alt="Living Hope Logo" 
             className="w-24 h-24 rounded-full border-4 border-white shadow-xl mb-6 object-cover pointer-events-none"
             draggable="false"
@@ -125,12 +125,17 @@ const FutureSparksHome: React.FC = () => {
               transition={{ delay: index * 0.1 }}
               className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col border border-gray-100"
             >
-              <div className="relative h-64 w-full bg-gray-200 overflow-hidden">
+              {/* Added padding to the container to give the image breathing room, and changed object-cover to object-contain */}
+              <div className="relative h-64 w-full bg-gray-50 overflow-hidden flex items-center justify-center p-4">
                 <img 
                   src={student.image} 
                   alt={student.name} 
-                  className="w-full h-full object-cover pointer-events-none"
+                  className="w-full h-full object-contain pointer-events-none drop-shadow-md"
                   draggable="false"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = student.gender?.toLowerCase() === 'female' ? '/image/projects/student_image/girl.png' : '/image/projects/student_image/boy.png';
+                  }}
                 />
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-800 shadow-sm flex items-center">
                   <GraduationCap className="h-3 w-3 mr-1" /> {student.grade}
@@ -164,7 +169,7 @@ const FutureSparksHome: React.FC = () => {
                   <div className="flex gap-3">
                     <Link 
                       to={student.detailRoute}
-                      className="flex-1 bg-gray-900 hover:bg-gray-800 text-white text-center py-3 rounded-xl font-bold transition-colors duration-300 text-sm"
+                      className="flex-1 bg-gray-900 hover:bg-gray-800 text-white text-center py-3 rounded-xl font-bold transition-colors duration-300 text-sm flex items-center justify-center"
                     >
                       View Details
                     </Link>
@@ -182,19 +187,6 @@ const FutureSparksHome: React.FC = () => {
             </motion.div>
           ))}
         </div>
-      </section>
-
-      <section className="py-16 bg-blue-50 flex justify-center">
-        <motion.a 
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href="https://rzp.io/rzp/7IK8wCU" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl md:text-2xl font-bold py-5 px-10 rounded-2xl shadow-xl flex items-center"
-        >
-          Donate Stationery <ArrowRight className="ml-3 h-6 w-6" />
-        </motion.a>
       </section>
 
       <footer className="bg-gray-900 text-gray-400 py-8 text-center border-t border-gray-800">
