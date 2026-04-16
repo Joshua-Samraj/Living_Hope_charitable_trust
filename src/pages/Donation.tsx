@@ -180,36 +180,25 @@ const Donation = () => {
       </section>
 
       {/* Bank Transfer Section */}
-      <section className="py-16 bg-transparent">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <div className="h-px bg-gray-300 flex-1"></div>
-            <h2 className="text-3xl font-bold text-gray-800">Bank Transfer</h2>
-            <div className="h-px bg-gray-300 flex-1"></div>
-          </div>
-          <div className="bg-white p-8 rounded-2xl shadow-lg text-left space-y-5 border border-gray-100 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
-            
-            <div className="flex justify-between items-center border-b border-gray-100 pb-3">
-              <span className="text-gray-500 font-medium">Account Name</span>
-              <span className="text-gray-900 font-bold text-right">{bankDetails.accountName}</span>
-            </div>
-            <div className="flex justify-between items-center border-b border-gray-100 pb-3">
-              <span className="text-gray-500 font-medium">Account Number</span>
-              <span className="text-gray-900 font-bold text-xl tracking-wider">{bankDetails.accountNumber}</span>
-            </div>
-            <div className="flex justify-between items-center border-b border-gray-100 pb-3">
-              <span className="text-gray-500 font-medium">Bank Name</span>
-              <span className="text-gray-900 font-bold">{bankDetails.bankName}</span>
-            </div>
-            <div className="flex justify-between items-center border-b border-gray-100 pb-3">
-              <span className="text-gray-500 font-medium">IFSC Code</span>
-              <span className="text-gray-900 font-bold tracking-wider">{bankDetails.ifsc}</span>
-            </div>
-            <div className="flex justify-between items-center pt-1">
-              <span className="text-gray-500 font-medium">Branch</span>
-              <span className="text-gray-900 font-bold text-right">{bankDetails.branch}</span>
-            </div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">Donate via Bank Transfer</h2>
+          <div className="bg-white p-6 rounded-xl shadow-lg text-left space-y-4">
+            <p className="text-lg">
+              <strong>Account Name:</strong> {bankDetails.accountName}
+            </p>
+            <p className="text-lg">
+              <strong>Account Number:</strong> {bankDetails.accountNumber}
+            </p>
+            <p className="text-lg">
+              <strong>Bank Name:</strong> {bankDetails.bankName}
+            </p>
+            <p className="text-lg">
+              <strong>IFSC Code:</strong> {bankDetails.ifsc}
+            </p>
+            <p className="text-lg">
+              <strong>Branch:</strong> {bankDetails.branch}
+            </p>
           </div>
           <p className="text-sm text-gray-500 mt-4">
             You can use internet banking, NEFT, or IMPS to make your contribution.
