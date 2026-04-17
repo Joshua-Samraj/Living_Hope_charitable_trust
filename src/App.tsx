@@ -15,7 +15,8 @@ import './index.css';
 import { HelmetProvider } from 'react-helmet-async';
 import GalleryPage from './pages/GalleryPage';
 import EventCalendar from './pages/EventCalendar';
-
+import FutureSparksHome from './pages/Fund_donation';
+import StudentDetail from './components/StudentDetail';
 const AnimatedRoutes = () => {
   const location = useLocation();
 
@@ -32,6 +33,11 @@ const AnimatedRoutes = () => {
         <Route path="/events" element={<EventCalendar />} />
         <Route path="/event-calendar" element={<EventCalendar />} />
         <Route path="/emergency" element={<Home />} />
+        <Route path="/fund_donation" element={<FutureSparksHome />} />
+        <Route path="/student/:studentSlug" element={<StudentDetail />} />
+        
+        {/* Or if you specifically want it to be /fund_donation/ */}
+        {/* <Route path="/fund_donation/:studentSlug" element={<StudentDetail />} /> */}
       </Routes>
     </AnimatePresence>
   );

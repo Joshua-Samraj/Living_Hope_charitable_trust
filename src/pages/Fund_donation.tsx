@@ -42,7 +42,7 @@ const FutureSparksHome: React.FC = () => {
         <meta property="og:image" content="https://living-hope-charitable-education-website-liart.vercel.app/image/thumbline.jpg" />
         <meta property="og:url" content="https://living-hope-charitable-education-website-liart.vercel.app/" />
         <meta property="og:type" content="website" />
-      </Helmet>  
+      </Helmet>
 
       <section className="bg-gradient-to-b from-blue-900 to-indigo-900 text-white pt-24 pb-16 px-4 relative overflow-hidden z-10">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-20">
@@ -200,7 +200,7 @@ const FutureSparksHome: React.FC = () => {
         }
       `}</style>
     </motion.div>
-  ); 
+  );
 };
 
 export default FutureSparksHome;
